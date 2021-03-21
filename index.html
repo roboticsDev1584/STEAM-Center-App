@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Geolocation/1.0.50/jquery.geolocation.min.js"></script>
+<style>
+html {
+	background-image:url("https://roboticsdev1584.github.io/STEAM-Center-App/map.jpg");
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position: center;
+}
+img {
+	display: block;
+	z-index:99;
+  width:40px; /*remove this later when switching from the cursor to background*/
+  height:40px;
+  /*margin-right:auto;
+  margin-left:auto;*/
+}
+body {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+imgC {
+	height:100%;
+  width:auto;
+	display: grid;
+  grid-template-columns: auto;
+  align-content:center;
+  margin-right:auto;
+  margin-left:auto;
+}
+</style>
+</head>
+<body>
+<button id = "find-me">Show my location</button><br>
+<p id = "status"></p>
+<a id = "map-link" target="_blank"></a>
+<div class="imgC" id="cursor">
+<img src= "https://roboticsdev1584.github.io/STEAM-Center-App/cursor.png" />
+</div>
+
+<script>
+  var cursor = document.getElementById("cursor");
+  $(document).ready(function () {
+    var update = updateParameters();
+	update.next(); //this is needed to make sure that it actually starts the coroutine
+	setInterval(function(){ update.next(); }, 1000); //this makes the coroutine go on forever
+	});
+  var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+	var vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+  cursor.style.left="400px";
+  var locationLong = 0;
+  var locationLat = 0;
+
+	//geolocation
+  function geoFindMe() {
+
+  const status = document.querySelector('#status');
+  const mapLink = document.querySelector('#map-link');
+
+  mapLink.href = '';
+  mapLink.textContent = '';
+  navigator.geolocation.getCurrentPosition(success, error); //this gets the initial coordinates
+
+  function success(position) {
+    locationLat  = position.coords.latitude;
+    locationLong = position.coords.longitude;
+console.log(locationLat);
+        console.log(locationLong);
+    //status.textContent = '';
+    //mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
+    //mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+    
+  } 
+
+  function error() {
+    console.log("Unable to retrieve location");
+  }
+	
+  vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+			vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+      if(!navigator.geolocation) {
+    		console.log("Geolocation not supported");
+  		} else {
+    		//status.textContent = 'Locating…';
+    		navigator.geolocation.getCurrentPosition(success, error);
+  		}
+    
+var centerLong = -96.631000
+var centerLat = 33.116000
+function OffsetY(){
+	var latOffset=locationLat-centerLat;
+  var feetOffsetY=364000*latOffset;
+}
+function OffsetX(){
+	var longOffset=locationLong-centerLong;
+  var feetOffsetX=288200*longOffset;
+}
+}
+
+function* updateParameters(){
+    console.log("testing");
+    while(true){
+	geoFindMe();
+	yield;
+    }
+ }
+
+  //this was for the original button layout
+//document.querySelector('#find-me').addEventListener('click', geoFindMe);
+  
+  
+</script>
+
+</body>
+</html>
