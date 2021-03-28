@@ -1,0 +1,187 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+<style>
+  html {
+  	scroll-behavior:smooth;
+  }
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+  .introC {
+  	margin-top:15px;
+    margin-left:20px;
+    font-size:15px;
+    text-align:center;
+  }
+  ul {
+  	list-style-type:none;
+    margin:0;
+    padding:0;
+  }
+  li {
+  	margin-bottom:1px;
+  }
+  a {
+  	text-decoration:none;
+    color:black;
+    transition: background-color 1s;
+  }
+  a:hover {
+  	color:#333333;
+    background-color:#bfbfbf;
+  }
+  hr {
+  	margin-right:auto;
+    margin-left:auto;
+  	width:400px;
+    border:0;
+  }
+  .contentBox {
+  	margin-left:auto;
+    margin-right:auto;
+  	text-align:center;
+    width:80%;
+    height:auto;
+    background-color:#cccccc;
+    border-radius:10px;
+  }
+  button {
+  	width:78%;
+  }
+  .btn-secondary {
+  	background-color:#ffca3a;
+    transition: background-color 1.5s;
+  }
+  .btn-secondary:hover {
+  	background-color:#e6a800;
+  }
+  .info {
+  	margin-top:15px;
+  	font-style:italic;
+    font-size:14px;
+  }
+  .btn-primary {
+  	font-size:14px;
+  	height:auto;
+    width:50%;
+    padding:4px;
+  }
+  /*.webLink {
+  	text-decoration:none;
+    color:black;
+  }
+  .webLink:hover {
+  	color:#333333;
+    background-color:none;
+  }*/
+  h2 {
+  	padding-top:10px;
+    font-weight:bold;
+  }
+  .contentImg {
+  	width:70%;
+  	height:auto;
+    margin-bottom:15px;
+  }
+</style>
+</head>
+<body>
+
+  <div style="height:20px;background-color:blue;text-align:center;margin-top:auto;color:white;">Navbar here</div>
+  <div class="introC">
+    <h1 class="clubsTitle">Clubs:</h1>
+    <ul>
+      <li><a href="#CSClub">Computer Science Club</a></li>
+      <li><a href="#RobotClub">Robotics Club</a></li>
+      <li><a href="#EtcClub">Etc. Club</a></li>
+    </ul>
+    <br>
+    <h1 class="clubsTitle">Organizations:</h1>
+    <ul>
+      <li><a href="#">Computer Science Honors Society</a></li>
+      <li><a href="#">STEAM Ambassadors</a></li>
+      <li><a href="#">Etc. Organization</a></li>
+    </ul>
+  </div>
+  <br>
+  <hr style="height:4px;background-color:black;">
+  <br>
+  <br>
+  
+  <div class="contentBox" id="CSClub">
+    <h2>Computer Science Club</h2>
+    <p class="info">Club description- this club is...</p>
+    <!--<a class="webLink" href="#">Visit their website</a>-->
+    <a href="#"><button type="button" class="btn btn-primary">Visit Their Website</button></a>
+    <div class="dropdown" style="margin-top:20px;">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Upcoming Events
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Another meeting</a>
+    <a class="dropdown-item" href="#">Cool Event</a>
+    <a class="dropdown-item" href="#">Cool Event2</a>
+  </div>
+	</div>
+  <br>
+  <img class="contentImg" src="https://roboticsdev1584.github.io/STEAM-Center-App/cs_club_test_image.jpg" loading="lazy" />
+  </div>
+  <br>
+  
+    <div class="contentBox" id="RobotClub">
+    <h2>Robotics Club</h2>
+    <p class="info">Club description- this club is...</p>
+    <!--<a class="webLink" href="#">Visit their website</a>-->
+    <a href="#"><button type="button" class="btn btn-primary">Visit Their Website</button></a>
+    <div class="dropdown" style="margin-top:20px;">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Upcoming Events
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Another meeting</a>
+    <a class="dropdown-item" href="#">Cool Event</a>
+    <a class="dropdown-item" href="#">Cool Event2</a>
+  </div>
+	</div>
+  <br>
+  <img class="contentImg" src="https://roboticsdev1584.github.io/STEAM-Center-App/cs_club_test_image.jpg" loading="lazy" />
+  </div>
+  <br>
+  <br>
+  
+    <div class="contentBox" id="EtcClub">
+    <h2>Etc. Club</h2>
+    <p class="info">Club description- this club is...</p>
+    <!--<a class="webLink" href="#">Visit their website</a>-->
+    <a href="#"><button type="button" class="btn btn-primary">Visit Their Website</button></a>
+    <div class="dropdown" style="margin-top:20px;">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Upcoming Events
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Another meeting</a>
+    <a class="dropdown-item" href="#">Cool Event</a>
+    <a class="dropdown-item" href="#">Cool Event2</a>
+  </div>
+	</div>
+  <br>
+  <img class="contentImg" src="https://roboticsdev1584.github.io/STEAM-Center-App/cs_club_test_image.jpg" loading="lazy" />
+  </div>
+
+<script>
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
