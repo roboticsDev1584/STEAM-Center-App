@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+  html {
+  	width:100%;
+  }
+body {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+.events{
+  	background: blue
+}
+#events-list{
+	float:left;
+  width: 31%;
+  height: 300px;
+  border: 15px solid #1982C4;
+  background-color: #1982C4;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 30px;
+}
+  ul {list-style-type: none;}
+body {font-family: Verdana, sans-serif;}
+
+  
+.calendar {
+	float:left;
+  width:60%;
+}
+/* Month header */
+.month {
+	/*padding-right:34%;
+  padding-left:34%;*/
+  padding: 70px 25px;
+  width: 90.5%;
+  background: #FF595E;
+  text-align: center;
+  margin:0;
+}
+
+/* Month list */
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.month ul li {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* Previous button inside month header */
+.month .prev {
+  float: left;
+  padding-top: 10px;
+}
+
+/* Next button */
+.month .next {
+  float: right;
+  padding-top: 10px;
+}
+/* Weekdays (Mon-Sun) */
+.weekdays {
+  margin-right: 20%;
+  padding: 10px ;
+  background-color:#ddd;
+  margin:0;
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 13%;
+  color: #666;
+  text-align: center;
+}
+
+/* Days (1-31) */
+.days {
+  padding: 10px 0;
+  background: #eee;
+  margin-right: 20%;
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 13%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size:12px;
+  color: #777;
+}
+
+/* Highlight the "current" day */
+.days li .active {
+  padding: 5px;
+  background: #FF595E;
+  color: white !important
+}
+</style>
+  </head>
+<body>
+<h1>_________________________________________________________</h1>
+<p>Stay up to date with what’s going on in the STEAM Center!</p>
+<div id="events-list">
+<p style="color:White;">Events coming up today:</p>
+<p style="color:White;">Events coming up this week:</p>
+<p style="color:White;">Events coming up later:</p>
+</div>
+
+<div class="calendar">
+<div class="month">
+  <ul>
+    <li class="prev">&#10094;</li>
+    <li class="next">&#10095;</li>
+    <li>March<br><span style="font-size:18px">2021</span></li>
+  </ul>
+</div>
+
+<ul class="weekdays">
+  <li>Su</li>
+  <li>Mo</li>
+  <li>Tu</li>
+  <li>We</li>
+  <li>Th</li>
+  <li>Fr</li>
+  <li>Sa</li>
+</ul>
+
+<ul class="days">
+  <li> </li>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  <li>6</li>
+  <li>7</li>
+  <li>8</li>
+  <li>9</li>
+  <li>10</li>
+  <li>11</li>
+  <li>12</li>
+  <li>13</li>
+  <li>14</li>
+  <li>15</li>
+  <li>16</li>
+  <li>17</li>
+  <li>18</li>
+  <li>19</li>
+  <li>20</li>
+  <li>21</li>
+  <li>22</li>
+  <li>23</li>
+  <li>24</li>
+  <li>25</li>
+  <li>26</li>
+  <li>27</li>
+  <li><span class="active">28</span></li>
+  <li>29</li>
+  <li>30</li>
+  <li>31</li>
+</ul>
+</div>
+</body>
+</html>
+  
+  
+  
