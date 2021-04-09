@@ -1,0 +1,204 @@
+{
+    "roomInfo": [
+        {"room" : "A001", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "A002", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "A003", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "A004", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "A005", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "A006", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "A007", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "A008", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "A009", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "A010", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "A011", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "A012", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "A013", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "A014", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "A015", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "A016", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "A017", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "A018", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "A019", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "A020", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "A021", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "A022", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "A023", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "B001", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "B002", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "B003", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "B004", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "B005", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "B006", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "B007", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "B008", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "B009", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "B010", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "B011", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "B012", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "B013", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "B014", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "B015", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "B016", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]},
+        {"room" : "B017", "course" : "Computer Science", "courseLink" : "#", "teacher" : "Mr. Teacher", "clubs" : [
+            {"name" : "Computer Science Club", "profileImg" : "url"}
+        ], "organizations": [
+            {"name" : "Computer Science Honor Society", "profileImg" : "url"}, {"name" : "Girls Who Code", "profileImg" : "url"}
+        ]}
+    ]
+}
