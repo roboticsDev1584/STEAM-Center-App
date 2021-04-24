@@ -95,6 +95,12 @@
         color: black;
         border-color: transparent;
       }
+      .active, .course-class:hover{
+        background-color: #ccc;
+      }
+      .course-class:focus{
+      outline: none;
+    }
     #mainImg {
       margin-right: 0px !important;
       margin-left: 0px !important;
@@ -117,7 +123,11 @@
     #outputC {
       position:absolute;
       z-index:99;
-      bottom:-20px;
+      bottom:-160px;
+      left:0px;
+      width:100%;
+      border-bottom-right-radius:5%;
+      border-bottom-left-radius:5%;
     }
     a:link {
       text-decoration: none;
@@ -173,24 +183,24 @@
     border-radius: 5px
   }
     .search-icon:hover {
-        color: #fff !important
+        color: #fff !important;
+        cursor:pointer;
+        text-decoration:none;
     }
     .searchResultDepts {
       display:none;
     }
-    .active, .course-class:hover{
+    .active, .course-class:hover {
       background-color: #ccc;
     }
-    .course-class:focus{
-      outline: none;
-    }
     .content {
-      padding: 0 18px;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.2s ease-out;
-    }
-    .science-descriptions{
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  }
+  .science-descriptions{
       background-color: #8ac926;
     }
     .technology-descriptions{
@@ -203,9 +213,10 @@
       background-color: #ffca3a;
     }
     .math-descriptions{
+      color:white;
       background-color: #ff595e;
     }
-    .text{
+      .text{
       font-weight: bold;
     }
     .course-background {
@@ -218,7 +229,7 @@
     .flexDepts {
       margin-top:20px;
     }
-    (max-height: 820px){
+    @media (max-height: 820px){
     .title-text{
       font-size:11vmin;
       margin-bottom:6vw;
@@ -253,6 +264,9 @@
     .mobileShow { display:block; }
     .normalShow { display:none; }
     .search { width: 90%; }
+    .searchResult {
+      padding:14px 0px 14px 0px;
+    }
   }
   @media (max-width: 768px) {
     .mobile-height {
@@ -416,9 +430,13 @@
 <div style="margin-top: 6vmax"></div>
   <div class="d-flex px-5 searchC">
     <div class="search"> 
+      <div class="search-field">
       <input type="text" id="search" class="search-input" placeholder="Search..." onkeyup="searchResults()"> 
-      <a href="#" class="search-icon"> <i class="fa fa-search"></i> </a> 
-      <div id="outputC">
+      <a class="search-icon"> <i class="fa fa-search"></i> </a> 
+      </div>
+      <div class="outputCC">
+      <div id="outputC"> &nbsp;
+      </div>
       </div>
     </div>
   </div>
@@ -442,49 +460,49 @@
       <div class="col-lg-10 col-md-12 course-background">
         <ul class="subtitle-text">
           <li>
-            <button type="button" class="course-class" style="width: 100%">Earth & Space Science</button>
+            <button type="button" class="course-class" id="Earth & Space Science" style="width: 100%">Earth & Space Science</button>
             <div class="content science-descriptions">
               <p style="color: black; font-size: 18px">Earth and Space Science combines earth, ocean, atmospheric and space science in a single course. Students learn the basics and special topics of geology, oceanography, meteorology and planetary astronomy in a course that builds upon the knowledge learned in earlier high school science courses.</p>
             </div>
           </li>
           <li>
-            <button type="button" class="course-class" style="width: 100%">Aquatic Science</button>
+            <button type="button" class="course-class" id="Aquatic Science" style="width: 100%">Aquatic Science</button>
             <div class="content science-descriptions">
               <p style="color: black; font-size: 18px">Aquatic Science is an introduction to the components of aquatic freshwater and marine ecosystems with an emphasis on conservation of water and aquatic life. Students will investigate the impact of weather, pollution and human interaction on aquatic systems. Through collaboration with peers, students will maintain an aquarium and conduct field based studies of the local watershed which will occur throughout the year. This course may include dissections.</p>
             </div>
           </li>
           <li>
-            <button type="button" class="course-class" style="width: 100%">Environmental Systems</button>
+            <button type="button" class="course-class" id="Environmental Systems" style="width: 100%">Environmental Systems</button>
             <div class="content science-descriptions">
               <p style="color: black; font-size: 18px">In Environmental Systems, students conduct laboratory and field investigations, use scientific methods during investigations, and make informed decisions using critical thinking and scientific problem solving. Students study a variety of topics that include: biotic and abiotic factors in habitats, ecosystems and biomes, interrelationships among resources and an environmental system, sources and flow of energy through an environmental system, relationship between carrying capacity and changes in populations and ecosystems, and changes in environments.</p>
             </div>
           </li>
           <li>
-            <button type="button" class="course-class" style="width: 100%">AP Environmental Science</button>
+            <button type="button" class="course-class" id="AP Environmental Science" style="width: 100%">AP Environmental Science</button>
             <div class="content science-descriptions">
               <p style="color: black; font-size: 18px">The goal of the AP Environmental Science course is to provide students with the scientific principles, concepts, and methodologies required to understand the interrelationships of the natural world, identify and analyze environmental problems both natural and human-made, evaluate the relative risks associated with these problems, and examine alternative solutions for resolving or preventing them.</p>
             </div>
           </li>
           <li>
-            <button type="button" class="course-class" style="width: 100%">Scientific Research & Design</button>
+            <button type="button" class="course-class" id="Scientific Research & Design" style="width: 100%">Scientific Research & Design</button>
             <div class="content science-descriptions">
               <p style="color: black; font-size: 18px">Scientific Research and Design is a project based applied science course designed to provide continuing study in various fields of science such as, biology, chemistry and physics. Knowledge from previous science classes will be expanded and applied to problem solving, experimental design, engineering, art, and other topics of student interest.</p>
             </div>
           </li>
           <li>
-            <button type="button" class="course-class" style="width: 100%">AP Physics I</button>
+            <button type="button" class="course-class" id="AP Physics I" style="width: 100%">AP Physics I</button>
             <div class="content science-descriptions">
               <p style="color: black; font-size: 18px">AP Physics 1 is an algebra-based, introductory college-level physics course. Students cultivate their understanding of Physics as they explore these topics: kinematics; dynamics; circular motion and gravitation; energy; momentum; simple harmonic motion; torque and rotational motion; electric charge and electric force; DC circuits; and mechanical waves and sound.  In addition students will develop strong critical thinking skills, perseverance, and other skills necessary to be successful in college courses.</p>
             </div>
           </li>
           <li>
-            <button type="button" class="course-class" style="width: 100%">AP Physics II</button>
+            <button type="button" class="course-class" id="AP Physics II" style="width: 100%">AP Physics II</button>
             <div class="content science-descriptions">
               <p style="color: black; font-size: 18px">AP Physics 2 is an algebra-based, introductory college-level physics course. Students cultivate their understanding of Physics through inquiry-based investigations as they explore these topics: fluids; thermodynamics; electrical force, field, and potential; electric circuits; magnetism and electromagnetic induction; geometric and physical optics; and quantum, atomic, and nuclear physics.</p>
             </div>
           </li>
           <li>
-            <button type="button" class="course-class" style="width: 100%">AP Physics C</button>
+            <button type="button" class="course-class" id="AP Physics C" style="width: 100%">AP Physics C</button>
             <div class="content science-descriptions">
               <p style="color: black; font-size: 18px">Although it may include topics such as wave motion, kinetic theory and optics, this course concentrates on topics in classical mechanics and electricity and magnetism. In the first semester, calculus is used in problem-solving and in derivations related to classical mechanics. In the second semester, calculus is used freely in formulating principles and in solving problems related to electricity and magnetism. Although laboratory experiments are performed in this course, the emphasis is on setting up and solving problems. Students should expect five to six hours of outside work per week.</p>
             </div>
@@ -517,31 +535,31 @@
       <div class="col-lg-10 col-md-12 course-background">
         <ul class="subtitle-text">
           <li>
-            <button type="button" class="course-class" style="width: 100%">AC/DC Electronics</button>
+            <button type="button" class="course-class" id="AC/DC Electronics" style="width: 100%">AC/DC Electronics</button>
             <div class="content technology-descriptions">
               <p style="color: black; font-size: 18px">AC/DC Electronics focuses on the basic electricity principles of alternating current/direct current (AC/DC) circuits. Students will demonstrate knowledge and applications of circuits, electronic measurement, and electronic implementation. Through use of the design process, students will transfer academic skills to component designs in a project-based environment. Students will use a variety of computer hardware and software applications to complete assignments and projects. Additionally, students will explore career opportunities, employer expectations, and educational needs in the electronics industry.</p>
             </div>
           </li>
           <li>
-            <button type="button" class="course-class" style="width: 100%">Computer Maintenance</button>
+            <button type="button" class="course-class" id="Computer Maintenance" style="width: 100%">Computer Maintenance</button>
             <div class="content technology-descriptions">
               <p style="color: black; font-size: 18px">The students will study the curriculum necessary to pass the CompTIA A+ certification exam. This exam certifies the student as a Computer Maintenance Technician and is the entry level certification for a career in Information Technology. Students acquire principles of computer maintenance, including electrical and electronic theory, computer hardware and software principles, and board level components related to the installation, diagnosis, service, and repair of computer systems. Students have opportunities to reinforce, apply, and transfer knowledge and skills to a variety of settings and problems.</p>
             </div>
           </li>
           <li>
-            <button type="button" class="course-class" style="width: 100%">Computer Science I</button>
+            <button type="button" class="course-class" id="Computer Science I" style="width: 100%">Computer Science I</button>
             <div class="content technology-descriptions">
               <p style="color: black; font-size: 18px">This course provides an introduction to Computer Science and a backbone for further studies in the field. It is intended for those students considering Computer Science as a major in college. While a significant portion of the course is dedicated to studying the analysis, design, implementation and debugging of programs in a variety of computer programming languages, this is not the only focus. Students will learn about the history of the computer, computer architecture, Boolean algebra, binary and other number systems, and data types and representations. No previous programming experience is required.</p>
             </div>
           </li>
           <li>
-            <button type="button" class="course-class" style="width: 100%">Computer Science II</button>
+            <button type="button" class="course-class" id="Computer Science II" style="width: 100%">Computer Science II</button>
             <div class="content technology-descriptions">
               <p style="color: black; font-size: 18px">This course continues to build on the student learning from Computer Science I extending both the breadth and depth of knowledge. It is intended for those students considering Computer Science as a major in college. Students will study additional data structures (including multi-dimensional arrays and lists), additional searching and sorting algorithms, and object-oriented programming concepts. Students will also gain further programming experience in a variety of languages.</p>
             </div>
           </li>
           <li>
-            <button type="button" class="course-class" style="width: 100%">Computer Science III</button>
+            <button type="button" class="course-class" id="Computer Science III" style="width: 100%">Computer Science III</button>
             <div class="content technology-descriptions">
               <p style="color: black; font-size: 18px">This course continues to build on the student learning from Computer Science II extending both the breadth and depth of knowledge. It is intended for those students considering Computer Science as a major in college. Students will study advanced data structures, additional searching and sorting algorithms, extensive recursion, and deeper knowledge of object-oriented and event-oriented program concepts, hashing solutions, regular expressions, and use of explicit program invariants. Students will also gain deeper programming experience in a variety of languages. Students are expected to collaborate and work in teams on larger projects.</p>
             </div>
@@ -572,57 +590,57 @@
       <div class="col-lg-10 col-md-12 course-background">
         <ul class="subtitle-text">
           <li>
-            <button type="button" class="course-class" style="width: 100%">Robotics I</button>
+            <button type="button" class="course-class" id="Robotics I" style="width: 100%">Robotics I</button>
             <div class="content engineering-descriptions">
               <p style="color: black; font-size: 18px">This course allows students to demonstrate knowledge and skills necessary for the robotic and automation industry. Through implementation of the design process, students will transfer advanced academic skills to component designs in a project-based environment. Students will build prototypes or use simulation software to test their designs. Additionally, students explore career opportunities, employer expectations, and educational needs in the robotic and automation industry.</p>
             </div>
           </li>
           <li>
-            <button type="button" class="course-class" style="width: 100%">Robotics II</button>
+            <button type="button" class="course-class" id="Robotics II" style="width: 100%">Robotics II</button>
             <div class="content engineering-descriptions">
               <p style="color: black; font-size: 18px">In Robotics II, students will explore artificial intelligence and programming in the robotic and automation industry. Through implementation of the design process, students will transfer academic skills to component designs in a project-based environment. Students will build prototypes and use software to test their designs.</p>
             </div>
           </li>
           <li>
-            <button type="button" class="course-class" style="width: 100%">Principles of Applied Engineering</button>
+            <button type="button" class="course-class" id="Principles of Applied Engineering" style="width: 100%">Principles of Applied Engineering</button>
             <div class="content engineering-descriptions">
               <p style="color: black; font-size: 18px">Principles of Applied Engineering provides an overview of the various fields of science, technology, engineering and mathematics and their interrelationships. Students will use a variety of computer hardware and software applications to complete assignments and projects. Upon completing this course, students will have an understanding of the various fields and will be able to make informed decisions regarding a coherent sequence of subsequent courses. Further, students will have worked on a design team to develop a product or system. Students will use multiple software applications to prepare and present course assignments.</p>
             </div>
           </li>
           <li>
-            <button type="button" class="course-class" style="width: 100%">Engineering Design & Presentation I</button>
+            <button type="button" class="course-class" id="Engineering Design & Presentation I" style="width: 100%">Engineering Design & Presentation I</button>
             <div class="content engineering-descriptions">
               <p style="color: black; font-size: 18px">Students enrolled in this course will demonstrate knowledge and skills of the process of design as it applies to engineering fields using multiple software applications and tools necessary to produce and present working drawings, solid model renderings, and prototypes. Students will use a variety of computer hardware and software applications to complete assignments and projects. Through implementation of the design process, students will transfer advanced academic skills to component designs. Additionally, students explore career opportunities in engineering, technology, and drafting and what is required to gain and maintain employment in these areas.</p>
             </div>
           </li>
           <li>
-            <button type="button" class="course-class" style="width: 100%">Engineering Design & Presentation II</button>
+            <button type="button" class="course-class" id="Engineering Design & Presentation II" style="width: 100%">Engineering Design & Presentation II</button>
             <div class="content engineering-descriptions">
               <p style="color: black; font-size: 18px">The student will use a variety of technologies to design systems. Students participate in the organization and operation of a real or simulated engineering project. This course further develops the process of engineering thought.</p>
             </div>
           </li>
           <li>
-            <button type="button" class="course-class" style="width: 100%">Interior Design I</button>
+            <button type="button" class="course-class" id="Interior Design I" style="width: 100%">Interior Design I</button>
             <div class="content engineering-descriptions">
-              <p style="color: black; font-size: 18px">Interior Design l is a hands-on technical that address course that addresses psychological, physiological, and sociological needs of individuals by enhancing the environments in which they live and work. In ID emphasis is placed on the selection of color, patterns, texture and fabrics for furniture accessories, windows, walls, floors and ceilings.  Other units covered include furniture styles, lighting, furniture arrangements, floor plans and styles of architecture. Students will be introduced to different computer software packages including CAD and measuring will be covered.</p>
+              <p style="color: black; font-size: 18px">Interior Design I is a hands-on technical that address course that addresses psychological, physiological, and sociological needs of individuals by enhancing the environments in which they live and work. In ID emphasis is placed on the selection of color, patterns, texture and fabrics for furniture accessories, windows, walls, floors and ceilings.  Other units covered include furniture styles, lighting, furniture arrangements, floor plans and styles of architecture. Students will be introduced to different computer software packages including CAD and measuring will be covered.</p>
             </div>
           </li>
           <li>
-            <button type="button" class="course-class" style="width: 100%">Interior Design II</button>
+            <button type="button" class="course-class" id="Interior Design II" style="width: 100%">Interior Design II</button>
             <div class="content engineering-descriptions">
-              <p style="color: black; font-size: 18px">Interior Design Il is a hands-on technical course that is a continuation of ID. Course components include tool identification and usage, safety for the industry, architectural computer design, identification of furniture styles, periods and designs.  Students will continue with their color knowledge, working with software packages including CAD and 3D, complete a series of drawings and do a collaborative project with Architectural Design student. Students will learn how to read a scale.</p>
+              <p style="color: black; font-size: 18px">Interior Design II is a hands-on technical course that is a continuation of ID. Course components include tool identification and usage, safety for the industry, architectural computer design, identification of furniture styles, periods and designs.  Students will continue with their color knowledge, working with software packages including CAD and 3D, complete a series of drawings and do a collaborative project with Architectural Design student. Students will learn how to read a scale.</p>
             </div>
           </li>
           <li>
-            <button type="button" class="course-class" style="width: 100%">Practicum in Interior Design</button>
+            <button type="button" class="course-class" id="Practicum in Interior Design" style="width: 100%">Practicum in Interior Design</button>
             <div class="content engineering-descriptions">
               <p style="color: black; font-size: 18px">Practicum in Interior Design (PID) is a paid or unpaid, hands-on technical course capstone experience or independent study course. PID provides job-specific skills training through laboratory or through career preparation delivery arrangements. This is an occupationally-specific course designed to provide technical instruction in interior design. Local training sponsors in areas compatible with identical career goals in interior design provide the opportunities for learning enhancement.  Safety and career opportunities are included in addition to work ethics and architectural design study. Students must provide their own transportation to and from their field sites.</p>
             </div>
           </li>
           <li>
-            <button type="button" class="course-class" style="width: 100%">Architectural Design I</button>
+            <button type="button" class="course-class" id="Architectural Design I" style="width: 100%">Architectural Design I</button>
             <div class="content engineering-descriptions">
-              <p style="color: black; font-size: 18px">Architectural Design is a hands-on technical course that provides students’ knowledge and skills specific to those needed to enter a career in architecture and construction or prepare a foundation toward a postsecondary degree in architecture, construction science, drafting, interior design, and landscape architecture. AD includes the knowledge of freehand sketching, original working drawings, lettering, design history, techniques, and tools related to the production of drawings, renderings, and scaled models for commercial or residential architectural purposes.  Students will continue working with CAD software toward their certification test and continue with work on reading a scale</p>
+              <p style="color: black; font-size: 18px">Architectural Design is a hands-on technical course that provides students’ knowledge and skills specific to those needed to enter a career in architecture and construction or prepare a foundation toward a postsecondary degree in architecture, construction science, drafting, interior design, and landscape architecture. AD includes the knowledge of freehand sketching, original working drawings, lettering, design history, techniques, and tools related to the production of drawings, renderings, and scaled models for commercial or residential architectural purposes.  Students will continue working with CAD software toward their certification test and continue with work on reading a scale.</p>
             </div>
           </li>
         </ul>
@@ -650,22 +668,22 @@
     </div>
     <div class="row justify-content-start align-items-end">
       <div class="col-lg-1 col-md-0"></div>
-      <div class="col-lg-10 col-md-12 course-background math-descriptions">
+      <div class="col-lg-10 col-md-12 course-background">
         <ul class="subtitle-text">
           <li>
-            <button type="button" class="course-class" style="width: 100%">Graphic Design & Illustration I</button>
+            <button type="button" class="course-class" id="Graphic Design & Illustration I" style="width: 100%">Graphic Design & Illustration I</button>
             <div class="content art-descriptions">
               <p style="color: black; font-size: 18px">Graphic Design and Illustration I spans all aspects of the advertising and visual communication industries. Within this context, in addition to developing knowledge and skills needed for success in the arts, audio/video technology, and communications career cluster, students are expected to develop an understanding of the industry with a focus on fundamental elements and principles of visual art and design.</p>
             </div>
           </li>
           <li>
-            <button type="button" class="course-class" style="width: 100%">Graphic Design & Illustration II/ Graphic Design II Lab</button>
+            <button type="button" class="course-class" id="Graphic Design & Illustration II/ Graphic Design II Lab" style="width: 100%">Graphic Design & Illustration II/ Graphic Design II Lab</button>
             <div class="content art-descriptions">
               <p style="color: black; font-size: 18px">Careers in graphic design and illustration span all aspects of the advertising and visual communications industries. Within this context, in addition to developing knowledge and skills needed for success in the Art, Audio/Video Technology, and Communications career cluster, students will be expected to develop an understanding of the industry with a focus on practical application of design theory and skills. Students will produce advertisements, brochures, magazine, and flyers, and maintain a professional portfolio of work.</p>
             </div>
           </li>
           <li>
-            <button type="button" class="course-class" style="width: 100%">Practicum in Graphic Design & Illustration</button>
+            <button type="button" class="course-class" id="Practicum in Graphic Design & Illustration" style="width: 100%">Practicum in Graphic Design & Illustration</button>
             <div class="content art-descriptions">
               <p style="color: black; font-size: 18px">Careers in graphic design and illustration span all aspects of the advertising and visual communications industry. Within this context, in addition to developing technical knowledge and skills needed for success in the Arts, Audio/Video Technology, and Communications career clusters, students will be expected to develop a technical understanding of the industry with a focus on skill proficiency. Instruction may be delivered through lab-based classroom experiences or career preparation opportunities.</p>
             </div>
@@ -673,13 +691,13 @@
           <li>
             <button type="button" class="course-class" style="width: 100%">Interior Design I</button>
             <div class="content art-descriptions">
-              <p style="color: black; font-size: 18px">Interior Design l is a hands-on technical that address course that addresses psychological, physiological, and sociological needs of individuals by enhancing the environments in which they live and work. In ID emphasis is placed on the selection of color, patterns, texture and fabrics for furniture accessories, windows, walls, floors and ceilings.  Other units covered include furniture styles, lighting, furniture arrangements, floor plans and styles of architecture. Students will be introduced to different computer software packages including CAD and measuring will be covered.</p>
+              <p style="color: black; font-size: 18px">Interior Design I is a hands-on technical that address course that addresses psychological, physiological, and sociological needs of individuals by enhancing the environments in which they live and work. In ID emphasis is placed on the selection of color, patterns, texture and fabrics for furniture accessories, windows, walls, floors and ceilings.  Other units covered include furniture styles, lighting, furniture arrangements, floor plans and styles of architecture. Students will be introduced to different computer software packages including CAD and measuring will be covered.</p>
             </div>
           </li>
           <li>
             <button type="button" class="course-class" style="width: 100%">Interior Design II</button>
             <div class="content art-descriptions">
-              <p style="color: black; font-size: 18px">Interior Design Il is a hands-on technical course that is a continuation of ID. Course components include tool identification and usage, safety for the industry, architectural computer design, identification of furniture styles, periods and designs.  Students will continue with their color knowledge, working with software packages including CAD and 3D, complete a series of drawings and do a collaborative project with Architectural Design student. Students will learn how to read a scale.</p>
+              <p style="color: black; font-size: 18px">Interior Design II is a hands-on technical course that is a continuation of ID. Course components include tool identification and usage, safety for the industry, architectural computer design, identification of furniture styles, periods and designs.  Students will continue with their color knowledge, working with software packages including CAD and 3D, complete a series of drawings and do a collaborative project with Architectural Design student. Students will learn how to read a scale.</p>
             </div>
           </li>
           <li>
@@ -691,7 +709,7 @@
           <li>
             <button type="button" class="course-class" style="width: 100%">Architectural Design I</button>
             <div class="content art-descriptions">
-              <p style="color: black; font-size: 18px">Architectural Design is a hands-on technical course that provides students’ knowledge and skills specific to those needed to enter a career in architecture and construction or prepare a foundation toward a postsecondary degree in architecture, construction science, drafting, interior design, and landscape architecture. AD includes the knowledge of freehand sketching, original working drawings, lettering, design history, techniques, and tools related to the production of drawings, renderings, and scaled models for commercial or residential architectural purposes.  Students will continue working with CAD software toward their certification test and continue with work on reading a scale</p>
+              <p style="color: black; font-size: 18px">Architectural Design is a hands-on technical course that provides students’ knowledge and skills specific to those needed to enter a career in architecture and construction or prepare a foundation toward a postsecondary degree in architecture, construction science, drafting, interior design, and landscape architecture. AD includes the knowledge of freehand sketching, original working drawings, lettering, design history, techniques, and tools related to the production of drawings, renderings, and scaled models for commercial or residential architectural purposes.  Students will continue working with CAD software toward their certification test and continue with work on reading a scale.</p>
             </div>
           </li>
         </ul>
@@ -720,27 +738,27 @@
       <div class="col-lg-10 col-md-12 course-background">
         <ul class="subtitle-text">
           <li>
-            <button type="button" class="course-class" style="width: 100%">AP Probability & Statistics</button>
+            <button type="button" class="course-class" id="AP Probability & Statistics" style="width: 100%">AP Probability & Statistics</button>
             <div class="content math-descriptions">
-              <p style="color: black; font-size: 18px">This course is designed to expose the students to four broad conceptual statistical themes: Exploring Data, Sampling and Experimentation of Data, Anticipating Patterns and Statistical Inference. These topics listed are the focus of the AP exam questions.</p>
+              <p style="color: #333333; font-size: 18px">This course is designed to expose the students to four broad conceptual statistical themes: Exploring Data, Sampling and Experimentation of Data, Anticipating Patterns and Statistical Inference. These topics listed are the focus of the AP exam questions.</p>
             </div>
           </li>
           <li>
             <button type="button" class="course-class" style="width: 100%">AP Physics I</button>
             <div class="content math-descriptions">
-              <p style="color: black; font-size: 18px">AP Physics 1 is an algebra-based, introductory college-level physics course. Students cultivate their understanding of Physics as they explore these topics: kinematics; dynamics; circular motion and gravitation; energy; momentum; simple harmonic motion; torque and rotational motion; electric charge and electric force; DC circuits; and mechanical waves and sound.  In addition students will develop strong critical thinking skills, perseverance, and other skills necessary to be successful in college courses.</p>
+              <p style="color: #333333; font-size: 18px">AP Physics 1 is an algebra-based, introductory college-level physics course. Students cultivate their understanding of Physics as they explore these topics: kinematics; dynamics; circular motion and gravitation; energy; momentum; simple harmonic motion; torque and rotational motion; electric charge and electric force; DC circuits; and mechanical waves and sound.  In addition students will develop strong critical thinking skills, perseverance, and other skills necessary to be successful in college courses.</p>
             </div>
           </li>
           <li>
             <button type="button" class="course-class" style="width: 100%">AP Physics II</button>
             <div class="content math-descriptions">
-              <p style="color: black; font-size: 18px">AP Physics 2 is an algebra-based, introductory college-level physics course. Students cultivate their understanding of Physics through inquiry-based investigations as they explore these topics: fluids; thermodynamics; electrical force, field, and potential; electric circuits; magnetism and electromagnetic induction; geometric and physical optics; and quantum, atomic, and nuclear physics.</p>
+              <p style="color: #333333; font-size: 18px">AP Physics 2 is an algebra-based, introductory college-level physics course. Students cultivate their understanding of Physics through inquiry-based investigations as they explore these topics: fluids; thermodynamics; electrical force, field, and potential; electric circuits; magnetism and electromagnetic induction; geometric and physical optics; and quantum, atomic, and nuclear physics.</p>
             </div>
           </li>
           <li>
             <button type="button" class="course-class" style="width: 100%">AP Physics C</button>
             <div class="content math-descriptions">
-              <p style="color: black; font-size: 18px">Although it may include topics such as wave motion, kinetic theory and optics, this course concentrates on topics in classical mechanics and electricity and magnetism. In the first semester, calculus is used in problem-solving and in derivations related to classical mechanics. In the second semester, calculus is used freely in formulating principles and in solving problems related to electricity and magnetism. Although laboratory experiments are performed in this course, the emphasis is on setting up and solving problems. Students should expect five to six hours of outside work per week.</p>
+              <p style="color: #333333; font-size: 18px">Although it may include topics such as wave motion, kinetic theory and optics, this course concentrates on topics in classical mechanics and electricity and magnetism. In the first semester, calculus is used in problem-solving and in derivations related to classical mechanics. In the second semester, calculus is used freely in formulating principles and in solving problems related to electricity and magnetism. Although laboratory experiments are performed in this course, the emphasis is on setting up and solving problems. Students should expect five to six hours of outside work per week.</p>
             </div>
           </li>
         </ul>
@@ -785,7 +803,7 @@ function hoverStyleP(pElement) {
   pElement.style.backgroundColor = "#0248b1";
 }
 function styleP(pElement) {//This is used to style each of the search results, change for better results
-  pElement.style.width = "200px";
+  pElement.style.width = "100%";
   pElement.style.height = "auto";
   pElement.style.color = "white";
   pElement.style.backgroundColor = "#3585fd";
@@ -798,9 +816,21 @@ function styleA(aElement) {//This is used to style the anchor tags, change for b
   aElement.style.color="white";
   aElement.style.textDecoration= "none";
 }
-function appendDiv(temp, txtOptDiv) {
+function hoverStyleA(aElement) {
+  aElement.style.cursor="pointer";
+  aElement.style.color="white";
+  aElement.style.textDecoration= "none";
+}
+function appendDiv(temp, txtOptDiv, resultCounter) {
+  var viewportWidth = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+  $("#outputC").css("bottom",`-${$("#outputC").outerHeight() + 50}px`);
+  if (viewportWidth < 992) {
+    $("#outputC").css("bottom",`-${$("#outputC").outerHeight() + 75}px`);
+  }
   selectedCourse = temp;
   var pElement = document.createElement("div");
+  pElement.id = `ids${resultCounter}`;
+  pElement.classList.add("searchResultParent");
   var pTxt = document.createElement("P"); //this creates a new <p> element
   pTxt.classList.add("searchResult");
   var aElement = document.createElement("A"); //this creates a new <a> element
@@ -810,7 +840,8 @@ function appendDiv(temp, txtOptDiv) {
   var link = "#";
   var counter = 0;
   stylePS(pTxt);
-  styleA(aElement);
+  aElement.onmouseover=function() {styleA(aElement);};
+  aElement.onmouseout=function() {hoverStyleA(aElement);};
   aElement.appendChild(pElement);
   pElement.appendChild(pTxt);
   pTxt.appendChild(txt); //this places the text inside of the new element
@@ -960,7 +991,22 @@ function appendDiv(temp, txtOptDiv) {
       break;
   }
   }
-  aElement.href=link;
+  //aElement.href=link;
+  try {
+    var prevElem = document.getElementById(`ids${resultCounter-1}`);
+    prevElem.style.borderBottomLeftRadius = "0px";
+    prevElem.style.borderBottomRightRadius = "0px";
+  } 
+  catch(err){
+    if (resultCounter == 5 || resultCounter == 0) {
+      $("#outputC").css("bottom",`-${$("#outputC").outerHeight() + 5}px`);
+      if (viewportWidth < 992) {
+        $("#outputC").css("bottom",`-${$("#outputC").outerHeight() + 6}px`);
+      }
+    }
+  }
+  pElement.style.borderBottomLeftRadius = "25px";
+  pElement.style.borderBottomRightRadius = "25px";
 }
 function clearDiv(txtOptDiv) {
   while(txtOptDiv.firstChild) {
@@ -976,13 +1022,17 @@ function searchResults() {
   var txtIpt = document.getElementById("search").value;
   var txtIptL = (txtIpt.toLowerCase()).replace(/[\/\\]/g,'');
   var txtOptDiv = document.getElementById("outputC");
+  $("#outputC").css("display", "block");
+  if (txtIptL == "" || txtIptL == " ") {
+    $("#outputC").css("display", "none");
+  }
   clearDiv(txtOptDiv); //this is used to make sure that the search results are cleared after each use
   for (var index=0; index<array.length; index++) {
     temp = array[index];
     tempL = (array[index].toLowerCase()).replace(/[\/\\]/g,' ');
     if ((tempL == txtIptL) || (txtIptL == "acdc electronics" && tempL == "ac dc electronics")) { //eliminate all other results on a perfect match
       cont2 = false;
-      appendDiv(temp, txtOptDiv); //temp here is used to assign a link to the correct search result
+      appendDiv(temp, txtOptDiv, 5); //temp here is used to assign a link to the correct search result
       break;
     }
   }
@@ -1027,7 +1077,7 @@ function searchResults() {
       if (temp4 == index) {
         //alert("Search result found!");
         resultCounter++;
-        appendDiv(temp3, txtOptDiv); //this takes care of updating the search results
+        appendDiv(temp3, txtOptDiv, resultCounter); //this takes care of updating the search results
       }
     }
     if (!cont3) { //same thing as cont3 == false
@@ -1036,17 +1086,31 @@ function searchResults() {
   }
   }
 }
+$(document).ready(function() {
+$("body").click(function(event) {
+  if ($(event.target).attr('class') != "search-field") {
+    $("#outputC").css("display", "none");
+  }
+  else {
+  $("#outputC").css("display", "block");
+  }
+});
 //this pulls up the course information and scrolls to the section where its dept's courses list is
 $("#outputC").on('click', ".searchResult", function() {
   var elem4ID = $(this).attr('class').split(/\s+/)[1].replace("I", "");
   var curElement = document.getElementById(`${elem4ID}`);
   window.scrollTo(0, curElement.offsetTop);
+  //this gets the element of the current selected course name
+  var courseElem = document.getElementById(`${$(this).text()}`); 
+  courseElem.classList.toggle("active");
+  var content = courseElem.nextElementSibling;
+  if (content.style.maxHeight){
+    content.style.maxHeight = null;
+  }
+  else {
+    content.style.maxHeight = content.scrollHeight + "px";
+  }
 });
-$(".search-icon").click(function(){}, function() {
-  var txtOptDiv = document.getElementById("outputC");
-  clearDiv(txtOptDiv);
-});
-//Making the Course Classes Collapsable
 
 var coll = document.getElementsByClassName("course-class");
 var i;
@@ -1062,5 +1126,6 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+});
 </script>
 </html>
