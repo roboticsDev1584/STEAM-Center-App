@@ -7,8 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Steam Center Courses Page</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href='https://fonts.googleapis.com/css?family=Asap' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
@@ -113,20 +114,25 @@
         height:100%;
     }
     #outputC {
-        margin-top: 40px;
+      position:absolute;
+      z-index:99;
+      bottom:-20px;
     }
     a:link {
       text-decoration: none;
   }
     .search {
-      width: 300px;
+      position:relative;
+      width: 60%;
+      min-width:400px;
       margin-bottom: auto;
+      margin-top: 10px;
+      margin-left:auto;
+      margin-right:auto;
       height: 50px;
       background-color: #e6e6e6;
       padding: 10px;
       border-radius: 5px;
-      display: flex;
-
   }
   .searchC {
     display: flex;
@@ -149,24 +155,27 @@
       font-size: 19px;
       font-weight: 300;
       color: black;
-      background-color: transparent;
+      /*background-color: transparent;*/
   }
   .search-icon {
-      height: 34px;
-      width: 34px;
-      margin-top: 29px;
-      color: white;
-      background-color: #3585fd;
-      font-size: 10px;
-      bottom: 30px;
-      position: relative;
-      border-radius: 5px;
+    height: 34px;
+    width: 34px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #3585fd;
+    font-size: 10px;
+    bottom: 30px;
+    position: relative;
+    border-radius: 5px
   }
     .search-icon:hover {
         color: #fff !important
     }
-    .testLabel {
-      margin-top:1000px;
+    .searchResultDepts {
+      display:none;
     }
     .active, .course-class:hover {
       background-color: #ccc;
@@ -225,6 +234,7 @@
     }
     .mobileShow { display:block; }
     .normalShow { display:none; }
+    .search { width: 90%; }
   }
   @media (max-width: 768px) {
     .mobile-height {
