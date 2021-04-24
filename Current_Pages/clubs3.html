@@ -4,9 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AHS Clubs Directory</title>
-  <meta name="description" content="Allen High School Clubs and Organizations Directory">
-  <meta name="theme-color" content="#101E5B">
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
@@ -19,7 +16,7 @@
 (Blue)- Technology: #1982c4
 (Purple)- Engineering: #6a4c93
 (Orange)- Art: #ffca3a
-(Red)- Math: #ff595e
+(Red)- Math: #ff595e2
 */
   body {
     font-family: 'Montserrat', sans-serif;
@@ -184,6 +181,8 @@
   }
   .search-icon:hover {
       color: #fff !important;
+      cursor:pointer;
+      text-decoration:none;
   }
   .searchResultDepts {
       display:none;
@@ -309,6 +308,7 @@
       </div>
       <br>
       <div class="container mt-2">
+        <div class="topContainer">
         <h1>Clubs and Organizations</h1>
         <br>
         <br>
@@ -328,10 +328,11 @@
         <div class="d-flex px-5 searchC">
           <div class="search"> 
             <input type="text" id="search" class="search-input" placeholder="Search..." onkeyup="searchResults()"> 
-            <a href="#" class="search-icon" style="text-decoration:none;"> <i class="fa fa-search"></i> </a> 
+            <a class="search-icon" style="text-decoration:none;"> <i class="fa fa-search"></i> </a> 
             <div id="outputC">
             </div>
           </div>
+        </div>
         </div>
         <div class="container">
         <div class="card main">
@@ -436,9 +437,8 @@
                 }
               }
               else {
-                if (steamOnlyOn) {
-                  listItem.style.display = "none";
-                }
+                if (steamOnlyOn) {listItem.style.display = "none";}
+                else {listItem.style.display = "block";}
                 mainArray.push(dataArr[index].name);
                 listItemS.style.borderLeft = "4px solid #cc3300";
               }
@@ -523,6 +523,120 @@
               listItemSS2.appendChild(listItemSS2Txt);
             }
           }
+          function updateClubInListing(index17) {
+              //this creates a new element
+              var listItem = document.createElement("LI");
+              listItem.id = `item${index17+1}`;
+              listItem.classList.add("linkItem");
+              subClubDisplay.appendChild(listItem);
+              var listItemS = document.createElement("div");
+              listItemS.classList.add("gridC");
+              if (dataArr[index17].dept != "other") {
+                switch (dataArr[index17].dept) {
+                  case "s":
+                    listItemS.style.borderLeft = "4px solid #8ac926";
+                    break;
+                  case "t":
+                    listItemS.style.borderLeft = "4px solid #1982c4";
+                    break;
+                  case "e":
+                    listItemS.style.borderLeft = "4px solid #6a4c93";
+                    break;
+                  case "a":
+                    listItemS.style.borderLeft = "4px solid #ffca3a";
+                    break;
+                  case "m":
+                    listItemS.style.borderLeft = "4px solid #ff595e";
+                    break;
+                  case "steam":
+                    listItemS.style.borderLeft = "4px solid #669999";
+                    break;
+                }
+              }
+              else {
+                if (steamOnlyOn) {listItem.style.display = "none";}
+                else {listItem.style.display = "block";}
+                listItemS.style.borderLeft = "4px solid #cc3300";
+              }
+              listItem.appendChild(listItemS); //this finishes the li with .gridC class div
+              //now the .gridC class div has to be added on to
+              var listItemSS1 = document.createElement("div");
+              var listItemSS2 = document.createElement("div");//has text for type of club
+              listItemS.appendChild(listItemSS1);listItemS.appendChild(listItemSS2);
+              var listItemSS1A = document.createElement("a");//has text/link for name of club
+              listItemSS1A.classList.add("linkItemA");
+              listItemSS1.appendChild(listItemSS1A);
+              //now only the text has to be created for these elements
+              var listItemSS1ATxt = document.createTextNode(`${dataArr[index17].name}`);
+              listItemSS1A.appendChild(listItemSS1ATxt);
+              var listItemSS2Txt;
+              if (dataArr[index17].subtype) {
+                switch (dataArr[index17].type) {
+                  case 1:
+                    listItemSS2Txt = document.createTextNode(`Academic - ${dataArr[index17].subtype}`);
+                    break;
+                  case 2:
+                    listItemSS2Txt = document.createTextNode(`Community Service Club - ${dataArr[index17].subtype}`);
+                    break;
+                  case 3:
+                    listItemSS2Txt = document.createTextNode(`Religious Organization - ${dataArr[index17].subtype}`);
+                    break;
+                  case 4:
+                    listItemSS2Txt = document.createTextNode(`Social Club - ${dataArr[index17].subtype}`);
+                    break;
+                  case 5:
+                    listItemSS2Txt = document.createTextNode(`Athletic Team - ${dataArr[index17].subtype}`);
+                    break;
+                  case 6:
+                    listItemSS2Txt = document.createTextNode(`Misc. - ${dataArr[index17].subtype}`);
+                    break;
+                  case 7:
+                    listItemSS2Txt = document.createTextNode(`School Organization - ${dataArr[index17].subtype}`);
+                    break;
+                  case 8:
+                    listItemSS2Txt = document.createTextNode(`Extracurricular - ${dataArr[index17].subtype}`);
+                    break;
+                  case 9:
+                    listItemSS2Txt = document.createTextNode(`Communication - ${dataArr[index17].subtype}`);
+                    break;
+                }
+              }
+              else if (dataArr[index17].type) {
+                switch (dataArr[index17].type) {
+                  case 1:
+                    listItemSS2Txt = document.createTextNode("Academic");
+                    break;
+                  case 2:
+                    listItemSS2Txt = document.createTextNode("Community Service Club");
+                    break;
+                  case 3:
+                    listItemSS2Txt = document.createTextNode("Religious Organization");
+                    break;
+                  case 4:
+                    listItemSS2Txt = document.createTextNode("Social Club");
+                    break;
+                  case 5:
+                    listItemSS2Txt = document.createTextNode("Athletic Team");
+                    break;
+                  case 6:
+                    listItemSS2Txt = document.createTextNode("Misc.");
+                    break;
+                  case 7:
+                    listItemSS2Txt = document.createTextNode("School Organization");
+                    break;
+                  case 8:
+                    listItemSS2Txt = document.createTextNode("Extracurricular");
+                    break;
+                  case 9:
+                    listItemSS2Txt = document.createTextNode("Communication");
+                    break;
+                }
+              } //end of else if statement
+              else if (!dataArr[index17].type) {
+                listItemSS2Txt = document.createTextNode("Other");
+              }
+              listItemSS2.appendChild(listItemSS2Txt);
+          }
           function clearClubListing(clubListing) {
             while(clubListing.firstChild) {
               clubListing.removeChild(clubListing.firstChild);
@@ -541,8 +655,37 @@
             //this gets the index of the current selected object based on its id
             var index = parseInt(clubID.replace( /^\D+/g, ''))-1;
             var currentObj = dataArr[index];
-            if (currentObj.banner_image) {$("#club-notice").css("background-image", `url("${currentObj.banner_image}")`)}
-            else { $("#club-notice").css("background-image", `url("${"https://roboticsdev1584.github.io/STEAM-Center-App/STEAM-icon-04.svg"}")`) }
+            if (currentObj.banner_image) {$("#club-notice").css("height", "400px");$("#club-notice").css("background-image", `url("${currentObj.banner_image}")`);}
+            //else { $("#club-notice").css("background-image", `url("${"https://roboticsdev1584.github.io/STEAM-Center-App/STEAM-icon-04.svg"}")`) }
+            else { 
+              $("#club-notice").css("background-image", "none");
+              $("#club-notice").css("height", "250px");
+              if (currentObj.dept != "other") {
+                switch (currentObj.dept) {
+                  case "s":
+                    $("#club-notice").css("background-color", "#8ac926");
+                    break;
+                  case "t":
+                    $("#club-notice").css("background-color", "#1982c4");
+                    break;
+                  case "e":
+                    $("#club-notice").css("background-color", "#6a4c93");
+                    break;
+                  case "a":
+                    $("#club-notice").css("background-color", "#ffca3a");
+                    break;
+                  case "m":
+                    $("#club-notice").css("background-color", "#ff595e");
+                    break;
+                  case "steam":
+                    $("#club-notice").css("background-color", "#669999");
+                    break;
+                }
+              }
+              else {
+                $("#club-notice").css("background-color", "#cc3300");
+              }
+            }
             $("#club-name").text(currentObj.name);
             var clubTypeStr = "";
             if (dataArr[index].subtype) {
@@ -680,18 +823,34 @@
           });
           $(".subClubDisplay").on('click', '.linkItem', function() {
             var thisClubID = $(this).attr("id");
+            $(".topContainer").css("display","none");
             displayClub(thisClubID);
+            //this is used to fix the footer positioning
+            var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+            var vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+            var elementOffset = $('.footerC').offset().top;
+	          var distance = (elementOffset)+$('.footerC').outerHeight();
+	          if ((vh-distance)>=0) { $('.footerC').css("position", "absolute");$('.footerC').css("bottom", "0px"); } 
+	          else { $('.footerC').css("position", "relative"); }
           });
           $("#returnToList").click(function() {
+            $(".topContainer").css("display","block");
             $("#club-select").css("display","block");
             $("#club-body").css("display","none");
+            $('.footerC').css("position", "relative");
+    //this is used to fix the footer positioning
+    var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    var vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+    var elementOffset = $('.footerC').offset().top;
+	  var distance = (elementOffset)+$('.footerC').outerHeight();
+	  if ((vh-distance)>=0) { $('.footerC').css("position", "absolute");$('.footerC').css("bottom", "0px"); } 
+	  else { $('.footerC').css("position", "relative"); }
             var scrollIDElem = document.getElementById(`${scrollID}`);
-            console.log(scrollIDElem.offsetTop);
             window.scrollTo(0, scrollIDElem.offsetTop);
           });
           /*start of JavaScript for the search bar*/
 var array = [];
-var maxResults = 5; //This is the maximum number of results that will pop up in the keyword search. Set to any valid number.
+var maxResults = 1000000000000; //This is the maximum number of results that will pop up in the keyword search. Set to any valid number.
 var obj = {};
 var tempString = "";
 var selectedDept = ""; //this is to help open the correct info for searching
@@ -761,6 +920,22 @@ function searchResults() {
   var txtIpt = document.getElementById("search").value;
   var txtIptL = (txtIpt.toLowerCase()).replace(/[\/\\]/g,'');
   var txtOptDiv = document.getElementById("outputC");
+  if (txtIptL == "" || txtIptL == " ") {
+    clearClubListing(clubListing);
+    updateClubListing();
+    $('.footerC').css("position", "relative");
+  }
+  else {
+    $('.footerC').css("position", "relative");
+    //this is used to fix the footer positioning
+    var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    var vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+    var elementOffset = $('.footerC').offset().top;
+	  var distance = (elementOffset)+$('.footerC').outerHeight();
+	  if ((vh-distance)>=0) { $('.footerC').css("position", "absolute");$('.footerC').css("bottom", "0px"); } 
+	  else { $('.footerC').css("position", "relative"); }
+    clearClubListing(clubListing);
+  }
   clearDiv(txtOptDiv); //this is used to make sure that the search results are cleared after each use
   if (!txtIptL[1]) {
     $("#outputC").css("bottom",`-${$("#outputC").outerHeight()+25}px`);
@@ -773,7 +948,15 @@ function searchResults() {
       //$("#outputC").css("bottom",`-${$("#outputC").outerHeight()+25}px`);
       stopOffset2 = true;
       cont2 = false;
-      appendDiv(temp, txtOptDiv); //temp here is used to assign a link to the correct search result
+      //appendDiv(temp, txtOptDiv); //temp here is used to assign a link to the correct search result
+      var foundIndex;
+      for (var index17 = 0; index17 < mainArray.length; index17++) {
+        if (mainArray[index17] == temp) {
+          foundIndex = index17;
+          break;
+        }
+      }
+      updateClubInListing(foundIndex);
       break;
     }
   }
@@ -816,15 +999,37 @@ function searchResults() {
         break;
       }
       if (temp4 == index) {
-        //alert("Search result found!");
         resultCounter++;
-        appendDiv(temp3, txtOptDiv); //this takes care of updating the search results
+        //appendDiv(temp3, txtOptDiv); //this takes care of updating the search results
+        var foundIndex;
+      for (var index17 = 0; index17 < mainArray.length; index17++) {
+        if (mainArray[index17] == temp3) {
+          foundIndex = index17;
+          break;
+        }
+      }
+      updateClubInListing(foundIndex);
       }
     }
     if (!cont3) { //same thing as cont3 == false
       break;
     }
   }
+  }
+  if (txtIptL == "" || txtIptL == " ") {
+    clearClubListing(clubListing);
+    updateClubListing();
+    $('.footerC').css("position", "relative");
+  }
+  else {
+    $('.footerC').css("position", "relative");
+    //this is used to fix the footer positioning
+    var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    var vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+    var elementOffset = $('.footerC').offset().top;
+	  var distance = (elementOffset)+$('.footerC').outerHeight();
+	  if ((vh-distance)>=0) { $('.footerC').css("position", "absolute");$('.footerC').css("bottom", "0px"); } 
+	  else { $('.footerC').css("position", "relative"); }
   }
 }
 //this pulls up the course information and scrolls to the section where its dept's courses list is
