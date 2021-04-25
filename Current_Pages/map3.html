@@ -56,9 +56,9 @@
     <div class="close">X</div>
     <!--This is for the normal map images-->
     <div class="imgC" id="imgC">
-    <div class="imgC2">
+    <!--<div class="imgC2">
     <img id="enlarge" loading="lazy" src="https://roboticsdev1584.github.io/STEAM-Center-App/enlarge.png" />
-    </div>
+    </div>-->
     <div class="imgC3">
       <img id="zoomIn" loading="lazy" src="https://roboticsdev1584.github.io/STEAM-Center-App/zoomInFixed.png" />
     </div>
@@ -85,7 +85,7 @@
     <!--Note- imgC7 is just a container in this instance, doesn't do anything special-->
     <div class="imgC7">
       <div class="roomToggle" id="A001">Digital Media Lab</div><div class="roomToggle" id="A002">Architecture</div><div class="roomToggle" id="A003">Science Lab</div><div id="A004"></div><div id="A005"></div><div class="roomToggle" id="A006">Science Lab</div><div id="A007"></div><div id="A008"></div><div class="roomToggle" id="A009">Science Lab</div><div id="A010"></div><div id="A011"></div><div id="A012"></div><div class="roomToggle" id="A013">Science Lab</div><div id="A014"></div>
-      <div class="roomToggle" id="A015" style="width:50%;">Administration</div><div class="roomToggle" id="A016">Cafe</div><div class="roomToggle" id="A017">Learning Studio/ Presentation Hall</div><div class="roomToggle" id="A018">Flight</div><div class="roomToggle" id="A019">Innovation Hub</div><div id="A020"></div><div class="roomToggle" id="A021">Robotics & Engineering</div><div id="A022"></div><div class="roomToggle" id="A023">Ellipse Theater</div>
+      <div class="roomToggle" id="A015">Administration</div><div class="roomToggle" id="A016">Cafe</div><div class="roomToggle" id="A017">Learning Studio/ Presentation Hall</div><div class="roomToggle" id="A018">Flight</div><div class="roomToggle" id="A019">Innovation Hub</div><div id="A020"></div><div class="roomToggle" id="A021">Robotics & Engineering</div><div id="A022"></div><div class="roomToggle" id="A023">Ellipse Theater</div>
     </div>
     <!--Note- this is for floor 2 of the map-->
     <div class="imgC8">
@@ -144,7 +144,51 @@
   </div>
   </div>
   </div> <!--End of bodyContent div-->
-  
+
+  <div class="footerC">
+    <div class="disclaimerC">
+    <div class="disclaimer paraBody">
+      <h2 class="footerTitle">Disclaimer</h2>
+      <p>This is a 3rd party platform created by students inside of AISD.</p>
+    </div>
+    </div>
+    <div class="mobileG">
+    <div class="createdbyM listBody">
+      <h2 class="footerTitle">Created By</h2>
+      <ul>
+        <li>Students in STEAM Ambassadors</li>
+        <li>Students in Computer Science</li>
+        <li>Students in Graphic Design</li>
+      </ul>
+    </div>
+    <div class="helpfullinksMC">
+    <div class="helpfullinksM listBody">
+      <h2 class="footerTitle">Helpful Links</h2>
+      <ul>
+        <li><a href="https://www.allenisd.org/" target="_blank">Official Allen ISD Website</a></li>
+        <li><a href="https://www.allenisd.org/steamcenter" target="_blank">Official STEAM Center Website</a></li>
+      </ul>
+    </div>
+    </div>
+    </div>
+    <div class="createdby listBody">
+      <h2 class="footerTitle">Created By</h2>
+      <ul>
+        <li>Students in STEAM Ambassadors</li>
+        <li>Students in Computer Science</li>
+        <li>Students in Graphic Design</li>
+      </ul>
+    </div>
+    <div class="helpfullinksC">
+    <div class="helpfullinks listBody">
+      <h2 class="footerTitle">Helpful Links</h2>
+      <ul>
+        <li><a href="https://www.allenisd.org/" target="_blank">Official Allen ISD Website</a></li>
+        <li><a href="https://www.allenisd.org/steamcenter" target="_blank">Official STEAM Center Website</a></li>
+      </ul>
+    </div>
+  </div>
+  </div>
 <script src="map3.js"></script><!--This is to import all of the JS for the page-->
 <script>
   /*start of code from club list*/
@@ -264,11 +308,19 @@
             var thisClubID = $(this).attr("id");
             $(".mainContent").css("display", "none");
             displayClub(thisClubID);
+            //this is used to fix the footer positioning
+            var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+            var vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+            var elementOffset = $('.footerC').offset().top;
+	          var distance = (elementOffset)+$('.footerC').outerHeight();
+	          if ((vh-distance)>=0) { $('.footerC').css("position", "absolute");$('.footerC').css("bottom", "0px"); } 
+	          else { $('.footerC').css("position", "relative"); }
           });
           $("#returnToList").click(function() {
             $(".mainContent").css("display", "block");
             $("#club-select").css("display","block");
             $("#club-body").css("display","none");
+            $('.footerC').css("position", "relative");
             var scrollIDElem = document.getElementById(`${scrollID}`);
             //window.scrollTo(0, scrollIDElem.offsetTop);
           });
