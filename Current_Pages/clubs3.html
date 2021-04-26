@@ -675,6 +675,8 @@
             //this gets the index of the current selected object based on its id
             var index = parseInt(clubID.replace( /^\D+/g, ''))-1;
             var currentObj = dataArr[index];
+            $("#club-notice").css("background-color", "rgba(0,0,0,0.0)");
+            $("#club-notice").css("background-image", "none");
             if (currentObj.banner_image) {$("#club-notice").css("height", "400px");$("#club-notice").css("background-image", `url("${currentObj.banner_image}")`);}
             //else { $("#club-notice").css("background-image", `url("${"https://roboticsdev1584.github.io/STEAM-Center-App/STEAM-icon-04.svg"}")`) }
             else { 
