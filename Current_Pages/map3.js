@@ -194,7 +194,7 @@ $(".imgC3").click(function() { //zoom in
       }
   }
   iMap.style.transform = `scale(${scaleAmt})`;
-  $(".imgC2").css("z-index","99");
+  //$(".imgC2").css("z-index","99");
   $(".imgC3").css("z-index","99");
   $(".imgC4").css("z-index","99");
   $(".imgC6").css("z-index","99");
@@ -221,6 +221,7 @@ $(".imgC4").click(function() { //zoom out
       $(`#${dataArr[index3].room}`).css("left", `${dataArr[index3].left}%`);
       $(`#${dataArr[index3].room}`).css("top", `${dataArr[index3].top}%`);     
     }
+    $("#A015").css("max-width","100% !important");
   }
   if (scaleAmt != 1.0) {
     $(".roomToggle").css("max-width","100%");
@@ -281,7 +282,7 @@ $(".imgC4").click(function() { //zoom out
       }
   }
   iMap.style.transform = `scale(${scaleAmt})`;
-  $(".imgC2").css("z-index","99");
+  //$(".imgC2").css("z-index","99");
   $(".imgC3").css("z-index","99");
   $(".imgC4").css("z-index","99");
   $(".imgC6").css("z-index","99");
@@ -450,7 +451,7 @@ catch (err) {
 }
 });
 /*This is for all of the zoom map stuff*/
-$("#enlarge").click(function(){
+/*$("#enlarge").click(function(){
   scrollTop =  window.pageYOffset || document.documentElement.scrollTop;
   scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
   			if (map1Active) {
@@ -465,14 +466,14 @@ $("#enlarge").click(function(){
         $(".zoomImgC").css({"display":"block"});
         $(".close").css({"display":"block"});
   			$("body").css({"overflow":"hidden"});
-        $(".imgC2").css("z-index","1");
+        //$(".imgC2").css("z-index","1");
         $(".imgC3").css("z-index","1");
         $(".imgC4").css("z-index","1");
         $(".imgC6").css("z-index","1");
         $(".imgC6Mobile").css("z-index","1");
         $(".legendC").css("z-index","1");
         $(".legendCMobile").css("z-index","1");
-     });
+     });*/
      $(".zoomImgC").click(function(){
         window.onscroll = function() {}; //enable scrolling
         $(".zoomImgC").css({"display":"none"});
@@ -489,3 +490,392 @@ $("#enlarge").click(function(){
        $(".legendC").css("z-index","99");
        $(".legendCMobile").css("z-index","99");
      });
+     /*start of code from club list*/
+  var subClubDisplay = document.querySelector(".subClubDisplay");
+  var scrollID = "";
+  var mainArray = [];
+  var steamArray = [];
+  var steamOnlyOn = true;
+  var numOfClubs = 0; 
+  var numOfSTEAMClubs = 0;
+  var clubListing = document.querySelector(".subClubDisplay");
+  function updateClubListing() {
+    mainArray = [];
+    steamArray = [];
+    numOfSTEAMClubs = 0;
+    for (var index = 0; index < roomListArr.length; index++) {
+      mainArray.push(roomListArr[index].teacher);
+      //this creates a new element
+      var listItem = document.createElement("LI");
+      listItem.id = `item${index+1}`;
+      listItem.classList.add("linkItem");
+      subClubDisplay.appendChild(listItem);
+      var listItemS = document.createElement("div");
+      listItemS.classList.add("gridC");
+      if (roomListArr[index].dept != "other") {
+        switch (roomListArr[index].dept) {
+          case "s":
+            listItemS.style.borderLeft = "4px solid #8ac926";
+            break;
+          case "t":
+            listItemS.style.borderLeft = "4px solid #1982c4";
+            break;
+          case "e":
+            listItemS.style.borderLeft = "4px solid #6a4c93";
+            break;
+          case "a":
+            listItemS.style.borderLeft = "4px solid #ffca3a";
+            break;
+          case "m":
+            listItemS.style.borderLeft = "4px solid #ff595e";
+            break;
+        }
+      }
+      listItem.appendChild(listItemS); //this finishes the li with .gridC class div
+      //now the .gridC class div has to be added on to
+      var listItemSS1 = document.createElement("div");
+      listItemSS1.style.paddingRight = "4px";
+      var listItemSS2 = document.createElement("div");//has text for type of club
+      listItemS.appendChild(listItemSS1);listItemS.appendChild(listItemSS2);
+      var listItemSS1A = document.createElement("a");//has text/link for name of club
+      listItemSS1A.classList.add("linkItemA");
+      //listItemSS1A.href = "";
+      listItemSS1.appendChild(listItemSS1A);
+      //now only the text has to be created for these elements
+      var tempStrInsert = "";
+      if (roomListArr[index].course) { tempStrInsert=roomListArr[index].course; }
+      else if (roomListArr[index].courses) {
+        for (var index4 = 0; index4 < roomListArr[index].courses.length; index4++) {
+          tempStrInsert += roomListArr[index].courses[index4];
+          if (index4 < (roomListArr[index].courses.length-1)) { tempStrInsert += ", "; }
+        }
+      }
+      var listItemSS1ATxt = document.createTextNode(`${roomListArr[index].teacher} - ${tempStrInsert}`);
+      listItemSS1A.appendChild(listItemSS1ATxt);
+      var listItemSS2Txt;
+      if (roomListArr[index].room) {
+        listItemSS2Txt = document.createTextNode(`${roomListArr[index].room}`);
+      }
+      listItemSS2.appendChild(listItemSS2Txt);
+    }
+  }
+  function updateClubInListing(index17) {
+      //this creates a new element
+      var listItem = document.createElement("LI");
+      listItem.id = `item${index17+1}`;
+      listItem.classList.add("linkItem");
+      subClubDisplay.appendChild(listItem);
+      var listItemS = document.createElement("div");
+      listItemS.classList.add("gridC");
+      if (roomListArr[index17].dept != "other") {
+        switch (roomListArr[index17].dept) {
+          case "s":
+            listItemS.style.borderLeft = "4px solid #8ac926";
+            break;
+          case "t":
+            listItemS.style.borderLeft = "4px solid #1982c4";
+            break;
+          case "e":
+            listItemS.style.borderLeft = "4px solid #6a4c93";
+            break;
+          case "a":
+            listItemS.style.borderLeft = "4px solid #ffca3a";
+            break;
+          case "m":
+            listItemS.style.borderLeft = "4px solid #ff595e";
+            break;
+        }
+      }
+      listItem.appendChild(listItemS); //this finishes the li with .gridC class div
+      //now the .gridC class div has to be added on to
+      var listItemSS1 = document.createElement("div");
+      listItemSS1.style.paddingRight = "4px";
+      var listItemSS2 = document.createElement("div");//has text for type of club
+      listItemS.appendChild(listItemSS1);listItemS.appendChild(listItemSS2);
+      var listItemSS1A = document.createElement("a");//has text/link for name of club
+      listItemSS1A.classList.add("linkItemA");
+      //listItemSS1A.href = "";
+      listItemSS1.appendChild(listItemSS1A);
+      //now only the text has to be created for these elements
+      var tempStrInsert = "";
+      if (roomListArr[index17].course) { tempStrInsert=roomListArr[index17].course; }
+      else if (roomListArr[index17].courses) {
+        for (var index4 = 0; index4 < roomListArr[index17].courses.length; index4++) {
+          tempStrInsert += roomListArr[index17].courses[index4];
+          if (index4 < (roomListArr[index17].courses.length-1)) { tempStrInsert += ", "; }
+        }
+      }
+      var listItemSS1ATxt = document.createTextNode(`${roomListArr[index17].teacher} - ${tempStrInsert}`);
+      listItemSS1A.appendChild(listItemSS1ATxt);
+      var listItemSS2Txt;
+      if (roomListArr[index17].room) {
+        listItemSS2Txt = document.createTextNode(`${roomListArr[index17].room}`);
+      }
+      listItemSS2.appendChild(listItemSS2Txt);
+  }
+  function clearClubListing(clubListing) {
+    while(clubListing.firstChild) {
+      clubListing.removeChild(clubListing.firstChild);
+    }
+  }
+  function displayClub(clubID) {
+    //this sets the user's current page scroll position
+    scrollID = clubID;
+    //this switches the view from the list to more information
+    $("#club-select").css("display","none");
+    $("#club-body").css("display","block");
+    //this automatically scrolls to the bottom of the page
+    var clubBody = document.querySelector("#club-body");
+    //this gets the index of the current selected object based on its id
+    var index = parseInt(clubID.replace( /^\D+/g, ''))-1;
+    var currentObj = roomListArr[index];
+    if (currentObj.banner_image) {$("#club-notice").css("background-image", `url("${currentObj.banner_image}")`)}
+    else { $("#club-notice").css("background-image", `url("${"https://roboticsdev1584.github.io/STEAM-Center-App/STEAM-icon-04.svg"}")`) }
+    var tempStrInsert = "";
+      if (currentObj.course) { tempStrInsert=currentObj.course; }
+      else if (currentObj.courses) {
+        for (var index4 = 0; index4 < currentObj.courses.length; index4++) {
+          tempStrInsert += currentObj.courses[index4];
+          if (index4 < (currentObj.courses.length-1)) { tempStrInsert += ", "; }
+        }
+      }
+    $("#course-teacher").text(tempStrInsert);
+    $("#course-name").text(currentObj.teacher);
+    $("#course-room").text(currentObj.room);
+      $("#course-clubsC").css("display", "none");
+      if (currentObj.clubs[0] || currentObj.organizations[0]) {
+        var tempSList = "";
+        $("#course-clubsC").css("display", "block");
+        for (var index4 = 0; index4 < currentObj.clubs.length; index4++) {
+          tempSList += currentObj.clubs[index4];
+          if (index4 < (currentObj.clubs.length-1)) { tempSList += ", "; }
+        }
+        for (var index4 = 0; index4 < currentObj.organizations.length; index4++) {
+          if (index4 == 0 && tempSList !="") { tempSList += ", "; }
+          tempSList += currentObj.organizations[index4];
+          if (index4 < (currentObj.organizations.length-1)) { tempSList += ", "; }
+        }
+        $("#course-clubs").text(tempSList);
+      }
+  }
+  $(".subClubDisplay").on('click', '.linkItem', function() {
+    var thisClubID = $(this).attr("id");
+    $(".mainContent").css("display", "none");
+    displayClub(thisClubID);
+    //this is used to fix the footer positioning
+    var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    var vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+    var elementOffset = $('.footerC').offset().top;
+    var distance = (elementOffset)+$('.footerC').outerHeight();
+    if ((vh-distance)>=0) { $('.footerC').css("position", "absolute");$('.footerC').css("bottom", "0px"); } 
+    else { $('.footerC').css("position", "relative"); }
+  });
+  $("#returnToList").click(function() {
+    $(".mainContent").css("display", "block");
+    $("#club-select").css("display","block");
+    $("#club-body").css("display","none");
+    $('.footerC').css("position", "relative");
+    var scrollIDElem = document.getElementById(`${scrollID}`);
+    //window.scrollTo(0, scrollIDElem.offsetTop);
+  });
+/*end of code from club list*/
+/*start of JavaScript for the search bar*/
+var array = [];
+var maxResults = 1000000000000; //This is the maximum number of results that will pop up in the keyword search. Set to any valid number.
+var obj = {};
+var tempString = "";
+var selectedDept = ""; //this is to help open the correct info for searching
+var selectedCourse = "";
+var stopOffset2 = false;
+var clubListing = document.querySelector(".subClubDisplay");
+
+function stylePS(psElement) {
+psElement.style.marginBottom = "0px";
+}
+function hoverStyleP(pElement) {
+//This is used to change the color of search results background when hovered over
+pElement.style.backgroundColor = "#0248b1";
+}
+function styleP(pElement) {//This is used to style each of the search results, change for better results
+pElement.style.width = "200px";
+pElement.style.height = "auto";
+pElement.style.color = "white";
+pElement.style.backgroundColor = "#3585fd";
+pElement.style.fontSize = "15px";
+pElement.style.padding = "0.5vmin";
+pElement.style.margin = "0vmin";
+//pElement.style.textAlign = "center";
+}
+function styleA(aElement) {//This is used to style the anchor tags, change for better results
+aElement.style.color="white";
+aElement.style.textDecoration= "none";
+aElement.style.cursor="pointer";
+}
+function appendDiv(temp, txtOptDiv) {
+if (stopOffset2) { $("#outputC").css("bottom",`-${$("#outputC").outerHeight()+25}px`); }
+else { $("#outputC").css("bottom",`-${$("#outputC").outerHeight() + 50}px`); }
+selectedCourse = temp;
+var pElement = document.createElement("div");
+var pTxt = document.createElement("P"); //this creates a new <p> element
+pTxt.classList.add("searchResult");
+var aElement = document.createElement("A"); //this creates a new <a> element
+aElement.style.textDecoration = "none";
+var txt = document.createTextNode(temp); //this puts the search result into a text field
+//var link = "#";
+var counter = 0;
+stylePS(pTxt);
+styleA(aElement);
+aElement.appendChild(pElement);
+pElement.appendChild(pTxt);
+pTxt.appendChild(txt); //this places the text inside of the new element
+pElement.onmouseover=function() {hoverStyleP(pElement)};
+pElement.onmouseout=function() {styleP(pElement)};
+styleP(pElement);
+txtOptDiv.appendChild(aElement); //this appends the new element to the content div
+//aElement.href=link;
+}
+function clearDiv(txtOptDiv) {
+while(txtOptDiv.firstChild) {
+txtOptDiv.removeChild(txtOptDiv.firstChild);
+}
+}
+function searchResults() {
+array = mainArray;
+$("#outputC").css("bottom",`-${$("#outputC").outerHeight() + 50}px`);
+obj = {};
+var highestCount = -1;
+stopOffset2 = false;
+var cont = true;
+var cont2 = true;
+var cont3 = true;
+var txtIpt = document.getElementById("search").value;
+var txtIptL = (txtIpt.toLowerCase()).replace(/[\/\\]/g,'');
+var txtOptDiv = document.getElementById("outputC");
+if (txtIptL == "" || txtIptL == " ") {
+clearClubListing(clubListing);
+updateClubListing();
+$('.footerC').css("position", "relative");
+}
+else {
+$('.footerC').css("position", "relative");
+//this is used to fix the footer positioning
+var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+var vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+var elementOffset = $('.footerC').offset().top;
+var distance = (elementOffset)+$('.footerC').outerHeight();
+if ((vh-distance)>=0) { $('.footerC').css("position", "absolute");$('.footerC').css("bottom", "0px"); } 
+else { $('.footerC').css("position", "relative"); }
+clearClubListing(clubListing);
+}
+clearDiv(txtOptDiv); //this is used to make sure that the search results are cleared after each use
+if (!txtIptL[1]) {
+$("#outputC").css("bottom",`-${$("#outputC").outerHeight()+25}px`);
+stopOffset2 = true;
+}
+for (var index=0; index<array.length; index++) {
+temp = array[index];
+tempL = (array[index].toLowerCase()).replace(/[\/\\]/g,' ');
+if ((tempL == txtIptL) || (txtIptL == "acdc electronics" && tempL == "ac dc electronics")) { //eliminate all other results on a perfect match
+//$("#outputC").css("bottom",`-${$("#outputC").outerHeight()+25}px`);
+stopOffset2 = true;
+cont2 = false;
+//appendDiv(temp, txtOptDiv); //temp here is used to assign a link to the correct search result
+var foundIndex;
+for (var index17 = 0; index17 < mainArray.length; index17++) {
+if (mainArray[index17] == temp) {
+  foundIndex = index17;
+  break;
+}
+}
+updateClubInListing(foundIndex);
+break;
+}
+}
+if (cont2) { //if a perfect match was not already found
+for (var index=0; index<array.length; index++) { //this searches the entire list
+cont=true;
+var temp = array[index];
+var tempL = (temp.toLowerCase()).replace(/[\/\\]/g,' ');
+var count = 0;
+for (var i=0; i<tempL.length; i++) { //this searches each character inside of string for each element of the array
+for(var i2=0; i2<txtIptL.length; i2++) { //this searches each character inside of the input string separately
+if (tempL[i] == txtIptL[i2]) {
+  cont=false;
+  count++;
+  break;
+}
+}
+}
+if (count > highestCount) {
+highestCount = count; //this updates the highest counted number (most accurate search result)
+}
+//this checks to see if the first word of the career is similar to the first part of the first word that the user types in the search
+var checkerIndx = tempL.indexOf(txtIptL);
+if (checkerIndx != -1) {
+//success! in this case, it found the user input lowercase string to be part of the lowercase array results
+highestCount+=40; //a really high value so that it takes priority
+count = highestCount;
+}
+obj[temp] = count; //this updates the count for each item
+}
+var objectLength = Object.keys("obj").length; //this returns the object's length, not needed right now
+//this is used to make sure that the search results appear in the highest order first
+var resultCounter = 0;
+for (var index=highestCount; index>0; index--) {
+for (var index2=0; index2<array.length; index2++) {
+var temp3 = array[index2];
+var temp4 = obj[temp3];
+if (resultCounter == maxResults) {
+cont3=false;
+break;
+}
+if (temp4 == index) {
+resultCounter++;
+//appendDiv(temp3, txtOptDiv); //this takes care of updating the search results
+var foundIndex;
+for (var index17 = 0; index17 < mainArray.length; index17++) {
+if (mainArray[index17] == temp3) {
+  foundIndex = index17;
+  break;
+}
+}
+updateClubInListing(foundIndex);
+}
+}
+if (!cont3) { //same thing as cont3 == false
+break;
+}
+}
+}
+if (txtIptL == "" || txtIptL == " ") {
+clearClubListing(clubListing);
+updateClubListing();
+$('.footerC').css("position", "relative");
+}
+else {
+$('.footerC').css("position", "relative");
+//this is used to fix the footer positioning
+var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+var vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+var elementOffset = $('.footerC').offset().top;
+var distance = (elementOffset)+$('.footerC').outerHeight();
+if ((vh-distance)>=0) { $('.footerC').css("position", "absolute");$('.footerC').css("bottom", "0px"); } 
+else { $('.footerC').css("position", "relative"); }
+}
+}
+//this pulls up the course information and scrolls to the section where its dept's courses list is
+$("#outputC").on('click', ".searchResult", function() {
+var searchResTxt = $(this).text();
+var elem4ID = $(`.subClubDisplay li:contains(${searchResTxt})`).attr("id");
+var curElement = document.getElementById(`${elem4ID}`);
+//this scrolls to the actual search result
+window.scrollTo(0, curElement.offsetTop);
+//this takes care of opening the information of the club or organization automatically
+var thisClubID = elem4ID
+displayClub(thisClubID);
+});
+$(".search-icon").click(function(){}, function() {
+var txtOptDiv = document.getElementById("outputC");
+clearDiv(txtOptDiv);
+});
+/*End of JavaScript for the search bar*/
