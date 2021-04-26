@@ -46,6 +46,62 @@
       color:#004a99;
       text-decoration:underline;
     }
+    .navbar {
+      position: relative;
+      display: flex;
+      /*flex-wrap: wrap;*/
+      align-items: center;
+      /*justify-content: space-between;*/
+      padding-top: .5rem;
+      padding-bottom: .5rem;
+    }
+    .bg-primary {
+      background-color: #0d6efd!important;
+    }
+    .navbar>.oldContainer {
+      display: flex;
+      flex-wrap: inherit;
+      align-items: center;
+      justify-content: space-between;
+    }
+    @media (min-width: 576px) {
+      .oldContainer {
+        max-width: 540px;
+      }
+    }
+    @media (min-width: 768px) {
+      .oldContainer {
+        max-width: 720px;
+      }
+    }
+    @media (min-width: 992px) {
+      .oldContainer {
+        max-width: 960px;
+      }
+    }
+    @media (min-width: 1200px) {
+      .oldContainer {
+        max-width: 1140px;
+      }
+    }
+    @media (min-width: 1400px) {
+      .oldContainer {
+        max-width: 1320px;
+      }
+    }
+    .oldContainer {
+      width: 100%;
+      padding-right: var(--bs-gutter-x,.75rem);
+      padding-left: var(--bs-gutter-x,.75rem);
+      margin-right: auto;
+      margin-left: auto;
+    }
+    @media (min-width: 992px) {
+      .navbar-expand-lg {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+      }
+    }
     @media (max-width:1300px) {
       .contentSpacer {
         height: 10vh;
@@ -166,7 +222,7 @@
 <body>
   <!--Navbar-->
   <div class="navbar navbar-expand-lg navbar-dark bg-primary" style="font-weight:500;">
-    <div class="container">
+    <div class="oldContainer">
       <a class="navbar-brand" href="homepagebody.html"><img style="width:50px;height:50px;filter:brightness(10000%);" src="https://roboticsdev1584.github.io/STEAM-Center-App/STEAM-icon-04.svg">STEAM Life</a><!-- TODO insert logo here-->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navCollapse" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -179,12 +235,12 @@
           <li class="nav-item"><a class="nav-link" href="clubs3.html">Clubs</a></li>
           <li class="nav-item"><a class="nav-link" href="https://forms.gle/gd7vYT3f4PCQ2vCa6">Feedback</a></li>
         </ul>
-        <ul class="navbar-nav">
+        <ul class="navbar-nav searchNav">
           <li class="nav-item"><a class="nav-link" href="#">Search</a></li>
           <!-- TODO replace "Search" text with icon later -->
         </ul>
       </div>
-    </div>
+  </div>
   </div>
   <!--Navbar end-->
 <div class="container-fluid my-container" style="text-align:center;">
