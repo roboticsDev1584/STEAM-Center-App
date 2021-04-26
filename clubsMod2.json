@@ -1139,6 +1139,7 @@
         "name": "STEAM Ambassadors",
         "type": 7,
         "dept": "steam",
+        "banner_image": "https://roboticsdev1584.github.io/STEAM-Center-App/STEAM-icon-04.svg",
         "description": "Allen STEAM Ambassadors are 10th-12th grade students developing the communication, collaborative, and leadership skills necessary for future success in STEM/STEAM academic and professional endeavors. Ambassadors serve as STEAM advocates on campus and throughout the community as they assist in the continued development of programs offered at or through the Allen ISD STEAM Center.",
         "website": "https://www.allenisd.org/Page/57758"
       },
@@ -1147,6 +1148,7 @@
         "name": "STEAM Makerspace",
         "type": 8,
         "dept": "steam",
+        "banner_image": "https://roboticsdev1584.github.io/STEAM-Center-App/STEAM-icon-04.svg",
         "description": "Tutorials and resources for the STEAM Center Makerspace (CURRENTLY CLOSED)",
         "website": "https://canvas.allenisd.org/enroll/CTF9FY",
         "sponsor": "Gormon"
@@ -1156,6 +1158,7 @@
         "name": "STEAM Student Leadership",
         "type": 7,
         "dept": "steam",
+        "banner_image": "https://roboticsdev1584.github.io/STEAM-Center-App/STEAM-icon-04.svg",
         "description": "Allen STEAM Ambassadors are 10th-12th grade students developing the communication, collaborative, and leadership skills necessary for future success in STEM/STEAM academic and professional endeavors. Ambassadors serve as STEAM advocates on campus and throughout the community as they assist in the continued development of programs offered at or through the Allen ISD STEAM Center.",
         "website": "https://www.allenisd.org/Page/57758"
       },
