@@ -4,8 +4,9 @@
   <title>STEAM Life - Courses</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="favicon.png" rel="icon" type="image/x-icon">
+  <link href="https://roboticsdev1584.github.io/STEAM-Center-App/Current_Pages/favicon.png" rel="icon" type="image/x-icon">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Steam Center Courses Page</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -28,11 +29,6 @@
       }
       html{
         scroll-behavior: smooth;
-      }
-      .title-text{
-        font-family: 'Asap';
-        font-weight: bold; 
-        font-size: 4vh;
       }
       .body-text{
         font-family: 'Montserrat';
@@ -57,10 +53,13 @@
         z-index: 1;
         text-align: center;
         color: white;
-        padding-top: 7%;
+        /*padding-top: 7%;*/
         font-family: 'Asap';
         font-weight: bold;
-        font-size: 500%;
+        /*font-size: 500%;*/
+        font-size:11vmin;
+      }
+      .title-textC {
         height:100%;
         background-color:rgba(0,0,0,0.65);
       }
@@ -230,12 +229,22 @@
       display:none;
     }
     .flexDepts {
-      margin-top:36px;
+      margin-top:76px;
     }
     @media (max-height: 820px){
     .title-text{
       font-size:11vmin;
-      margin-bottom:6vw;
+    }
+  }
+  @media (max-width: 575px){
+    .title-textC{
+      padding-top:15vw;
+    }
+  }
+  @media (max-height: 550px){
+    .title-textC{
+      font-size:11vmin;
+      padding-top:10vh;
     }
   }
   @media (max-width: 992px){
@@ -432,20 +441,20 @@
   </style>
 </head>
 <body>
-  <div class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <!--Navbar-->
+  <div class="navbar navbar-expand-lg navbar-dark bg-primary"style="font-family: 'Montserrat', sans-serif;font-weight:500;">
     <div class="container">
-      <a class="navbar-brand" href="#">STEAM center</a><!-- TODO insert logo here--> 
-      <button class="navbar-toggler" type="button" 1data-toggle="collapse" data-target="#navCollapse" aria-label="Toggle navigation">
-        <!-- FIXME collapse for mobile isn't working for some reason, needs to be fixed later -->
+      <a class="navbar-brand" href="homepagebody.html"><img style="width:50px;height:50px;filter:brightness(10000%);" src="https://roboticsdev1584.github.io/STEAM-Center-App/STEAM-icon-04.svg">STEAM Life</a><!-- TODO insert logo here-->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navCollapse" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
       <div class="collapse navbar-collapse" id="navCollapse">
         <ul class="navbar-nav" style="margin-right: auto;">
-          <li class="nav-item"><a class="nav-link" href="#">Explore</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Courses</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Events</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Clubs</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Feedback</a></li>
+          <li class="nav-item"><a class="nav-link" href="map3.html">Explore</a></li>
+          <li class="nav-item"><a class="nav-link" style="color:white;" href="STEAMCenterCoursesPage.html">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+          <li class="nav-item"><a class="nav-link" href="clubs3.html">Clubs</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://forms.gle/gd7vYT3f4PCQ2vCa6">Feedback</a></li>
         </ul>
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" href="#">Search</a></li>
@@ -454,11 +463,14 @@
       </div>
     </div>
   </div>
+  <!--Navbar end-->
   <div class="row">
     <div class = "col-lg-12">
       <div class="background-image">
+        <div class="title-textC jumbotron">
         <div class="title-text">
           STEAM CENTER <br>COURSES
+        </div>
         </div>
       </div>
     </div>
