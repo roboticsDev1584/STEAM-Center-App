@@ -9,6 +9,7 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
 <link rel="stylesheet" href="map3.css"> <!--This is to import all of the css for the page-->
@@ -16,17 +17,17 @@
 <body>
   <!--Navbar-->
   <div class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container">
-      <a class="navbar-brand" href="homepagebody.html">STEAM center</a><!-- TODO insert logo here-->
+    <div class="container"style="width:100% !important;">
+      <a class="navbar-brand" href="homepagebody.html"><img style="width:50px;height:50px;filter:brightness(10000%);" src="https://roboticsdev1584.github.io/STEAM-Center-App/STEAM-icon-04.svg">STEAM Life</a><!-- TODO insert logo here-->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navCollapse" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
       <div class="collapse navbar-collapse" id="navCollapse">
         <ul class="navbar-nav" style="margin-right: auto;">
-          <li class="nav-item"><a class="nav-link" href="map.html">Explore</a></li>
-          <li class="nav-item"><a class="nav-link" href="Courses_Page/STEAMCenterCoursesPage.html">Courses</a></li>
+          <li class="nav-item"><a class="nav-link active" href="map3.html">Explore</a></li>
+          <li class="nav-item"><a class="nav-link" href="STEAMCenterCoursesPage.html">Courses</a></li>
           <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
-          <li class="nav-item"><a class="nav-link" href="Clubs_Page/clubs3.html">Clubs</a></li>
+          <li class="nav-item"><a class="nav-link" href="clubs3.html">Clubs</a></li>
           <li class="nav-item"><a class="nav-link" href="https://forms.gle/gd7vYT3f4PCQ2vCa6">Feedback</a></li>
         </ul>
         <ul class="navbar-nav">
@@ -122,6 +123,15 @@
   <!--This is taken from the club listing page-->
   <div class="container">
   <div class="card main">
+    <div class="d-flex px-5 searchC">
+      <div class="search"> 
+        <input type="text" id="search" class="search-input" placeholder="Search..." onkeyup="searchResults()"> 
+        <a class="search-icon" style="text-decoration:none;"> <i class="fa fa-search"></i> </a> 
+        <div id="outputC">
+        </div>
+      </div>
+    </div>
+    <br><br>
     <div id="club-select">
       <div class="gridC" style="background-color:white;padding:0px;border-radius:0px;border:none;cursor:default;"><div class="titleT">Teacher Name/ Course</div><div class="titleT">Room #</div></div>
       <hr class="hzLine">
@@ -193,142 +203,6 @@
   </div>
   </div>
 <script src="map3.js"></script><!--This is to import all of the JS for the page-->
-<script>
-  /*start of code from club list*/
-  var subClubDisplay = document.querySelector(".subClubDisplay");
-          var scrollID = "";
-          var mainArray = [];
-          var steamArray = [];
-          var steamOnlyOn = true;
-          var numOfClubs = 0; 
-          var numOfSTEAMClubs = 0;
-          var clubListing = document.querySelector(".subClubDisplay");
-          function updateClubListing() {
-            mainArray = [];
-            steamArray = [];
-            numOfSTEAMClubs = 0;
-            for (var index = 0; index < roomListArr.length; index++) {
-              //this creates a new element
-              var listItem = document.createElement("LI");
-              listItem.id = `item${index+1}`;
-              listItem.classList.add("linkItem");
-              subClubDisplay.appendChild(listItem);
-              var listItemS = document.createElement("div");
-              listItemS.classList.add("gridC");
-              if (roomListArr[index].dept != "other") {
-                switch (roomListArr[index].dept) {
-                  case "s":
-                    listItemS.style.borderLeft = "4px solid #8ac926";
-                    break;
-                  case "t":
-                    listItemS.style.borderLeft = "4px solid #1982c4";
-                    break;
-                  case "e":
-                    listItemS.style.borderLeft = "4px solid #6a4c93";
-                    break;
-                  case "a":
-                    listItemS.style.borderLeft = "4px solid #ffca3a";
-                    break;
-                  case "m":
-                    listItemS.style.borderLeft = "4px solid #ff595e";
-                    break;
-                }
-              }
-              listItem.appendChild(listItemS); //this finishes the li with .gridC class div
-              //now the .gridC class div has to be added on to
-              var listItemSS1 = document.createElement("div");
-              listItemSS1.style.paddingRight = "4px";
-              var listItemSS2 = document.createElement("div");//has text for type of club
-              listItemS.appendChild(listItemSS1);listItemS.appendChild(listItemSS2);
-              var listItemSS1A = document.createElement("a");//has text/link for name of club
-              listItemSS1A.classList.add("linkItemA");
-              //listItemSS1A.href = "";
-              listItemSS1.appendChild(listItemSS1A);
-              //now only the text has to be created for these elements
-              var tempStrInsert = "";
-              if (roomListArr[index].course) { tempStrInsert=roomListArr[index].course; }
-              else if (roomListArr[index].courses) {
-                for (var index4 = 0; index4 < roomListArr[index].courses.length; index4++) {
-                  tempStrInsert += roomListArr[index].courses[index4];
-                  if (index4 < (roomListArr[index].courses.length-1)) { tempStrInsert += ", "; }
-                }
-              }
-              var listItemSS1ATxt = document.createTextNode(`${roomListArr[index].teacher} - ${tempStrInsert}`);
-              listItemSS1A.appendChild(listItemSS1ATxt);
-              var listItemSS2Txt;
-              if (roomListArr[index].room) {
-                listItemSS2Txt = document.createTextNode(`${roomListArr[index].room}`);
-              }
-              listItemSS2.appendChild(listItemSS2Txt);
-            }
-          }
-          function clearClubListing(clubListing) {
-            while(clubListing.firstChild) {
-              clubListing.removeChild(clubListing.firstChild);
-            }
-          }
-          function displayClub(clubID) {
-            //this sets the user's current page scroll position
-            scrollID = clubID;
-            //this switches the view from the list to more information
-            $("#club-select").css("display","none");
-            $("#club-body").css("display","block");
-            //this automatically scrolls to the bottom of the page
-            var clubBody = document.querySelector("#club-body");
-            //this gets the index of the current selected object based on its id
-            var index = parseInt(clubID.replace( /^\D+/g, ''))-1;
-            var currentObj = roomListArr[index];
-            if (currentObj.banner_image) {$("#club-notice").css("background-image", `url("${currentObj.banner_image}")`)}
-            else { $("#club-notice").css("background-image", `url("${"https://roboticsdev1584.github.io/STEAM-Center-App/STEAM-icon-04.svg"}")`) }
-            var tempStrInsert = "";
-              if (currentObj.course) { tempStrInsert=currentObj.course; }
-              else if (currentObj.courses) {
-                for (var index4 = 0; index4 < currentObj.courses.length; index4++) {
-                  tempStrInsert += currentObj.courses[index4];
-                  if (index4 < (currentObj.courses.length-1)) { tempStrInsert += ", "; }
-                }
-              }
-            $("#course-teacher").text(tempStrInsert);
-            $("#course-name").text(currentObj.teacher);
-            $("#course-room").text(currentObj.room);
-              $("#course-clubsC").css("display", "none");
-              if (currentObj.clubs[0] || currentObj.organizations[0]) {
-                var tempSList = "";
-                $("#course-clubsC").css("display", "block");
-                for (var index4 = 0; index4 < currentObj.clubs.length; index4++) {
-                  tempSList += currentObj.clubs[index4];
-                  if (index4 < (currentObj.clubs.length-1)) { tempSList += ", "; }
-                }
-                for (var index4 = 0; index4 < currentObj.organizations.length; index4++) {
-                  if (index4 == 0 && tempSList !="") { tempSList += ", "; }
-                  tempSList += currentObj.organizations[index4];
-                  if (index4 < (currentObj.organizations.length-1)) { tempSList += ", "; }
-                }
-                $("#course-clubs").text(tempSList);
-              }
-          }
-          $(".subClubDisplay").on('click', '.linkItem', function() {
-            var thisClubID = $(this).attr("id");
-            $(".mainContent").css("display", "none");
-            displayClub(thisClubID);
-            //this is used to fix the footer positioning
-            var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-            var vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-            var elementOffset = $('.footerC').offset().top;
-	          var distance = (elementOffset)+$('.footerC').outerHeight();
-	          if ((vh-distance)>=0) { $('.footerC').css("position", "absolute");$('.footerC').css("bottom", "0px"); } 
-	          else { $('.footerC').css("position", "relative"); }
-          });
-          $("#returnToList").click(function() {
-            $(".mainContent").css("display", "block");
-            $("#club-select").css("display","block");
-            $("#club-body").css("display","none");
-            $('.footerC').css("position", "relative");
-            var scrollIDElem = document.getElementById(`${scrollID}`);
-            //window.scrollTo(0, scrollIDElem.offsetTop);
-          });
-     /*end of code from club list*/
-</script>
 </body>
 </html>
 
