@@ -134,6 +134,62 @@
     a:link {
       text-decoration: none;
   }
+  .navbar {
+      position: relative;
+      display: flex;
+      /*flex-wrap: wrap;*/
+      align-items: center;
+      /*justify-content: space-between;*/
+      padding-top: .5rem;
+      padding-bottom: .5rem;
+    }
+    .bg-primary {
+      background-color: #0d6efd!important;
+    }
+    .navbar>.oldContainer {
+      display: flex;
+      flex-wrap: inherit;
+      align-items: center;
+      justify-content: space-between;
+    }
+    @media (min-width: 576px) {
+      .oldContainer {
+        max-width: 540px;
+      }
+    }
+    @media (min-width: 768px) {
+      .oldContainer {
+        max-width: 720px;
+      }
+    }
+    @media (min-width: 992px) {
+      .oldContainer {
+        max-width: 960px;
+      }
+    }
+    @media (min-width: 1200px) {
+      .oldContainer {
+        max-width: 1140px;
+      }
+    }
+    @media (min-width: 1400px) {
+      .oldContainer {
+        max-width: 1320px;
+      }
+    }
+    .oldContainer {
+      width: 100%;
+      padding-right: var(--bs-gutter-x,.75rem);
+      padding-left: var(--bs-gutter-x,.75rem);
+      margin-right: auto;
+      margin-left: auto;
+    }
+    @media (min-width: 992px) {
+      .navbar-expand-lg {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+      }
+    }
     .search {
       position:relative;
       width: 60%;
@@ -443,7 +499,7 @@
 <body>
   <!--Navbar-->
   <div class="navbar navbar-expand-lg navbar-dark bg-primary"style="font-family: 'Montserrat', sans-serif;font-weight:500;">
-    <div class="container">
+    <div class="oldContainer">
       <a class="navbar-brand" href="homepagebody.html"><img style="width:50px;height:50px;filter:brightness(10000%);" src="https://roboticsdev1584.github.io/STEAM-Center-App/STEAM-icon-04.svg">STEAM Life</a><!-- TODO insert logo here-->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navCollapse" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
