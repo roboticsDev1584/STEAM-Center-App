@@ -424,6 +424,26 @@
         "website": "https://www.allenisd.org/Domain/5483"
       },
       {
+        "id": 201,
+        "name": "Digital Media Club",
+        "type": 8,
+        "subtype": "Digital Art",
+        "dept": "a",
+        "description": "Digital Media Club is designated for people who like to create content using digital mediums. For example, creating digital art, videography, and graphic design.",
+        "website": "https://www.allenisd.org/Page/59907",
+        "sponsor": "Mrs. Brown",
+        "leader": "Angela Suresh",
+        "location": {
+          "campus": null,
+          "room": "Through Zoom"
+        },
+        "social": {
+          "discord": "https://discord.gg/2sQhH6A",
+          "remind": "https://www.remind.com/join/allendmc",
+          "instagram": "https://www.instagram.com/ahs.digitalmedia/?hl=en"
+        }
+      },
+      {
         "id": 113,
         "name": "Eagle Edge",
         "type": 7,
