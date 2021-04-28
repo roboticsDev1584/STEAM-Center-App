@@ -24,7 +24,7 @@
     font-family: 'Montserrat', sans-serif;
   }
   .bodyContent {
-  	margin-left:7%;
+    margin-left:7%;
     margin-right:7%;
   }
   .center {
@@ -211,25 +211,25 @@
   text-align:center;
 }
 .footerTitle {
-	font-size:28px;
+  font-size:28px;
 }
 .paraBody {
-	font-size:14px;
+  font-size:14px;
 }
 .listBody {
-	font-size:14px;
+  font-size:14px;
 }
 .listBody ul {
-	list-style-type:none;
+  list-style-type:none;
   padding:0;
   margin:0;
 }
 .listBody ul li a {
-	color:white;
+  color:white;
   text-decoration:underline;
 }
 .listBody ul li a:hover {
-	color:#262626;
+  color:#262626;
 }
 .disclaimer p {
     margin-bottom:0px;
@@ -275,19 +275,19 @@
     justify-content:center;
   }
   .listBody {
-		font-size:12px;
-	}
+    font-size:12px;
+  }
   .paraBody {
-		font-size:12px;
-	}
+    font-size:12px;
+  }
   .createdbyM .footerTitle{
-  	font-size:24px;
+    font-size:24px;
   }
   .helpfullinksM .footerTitle{
-  	font-size:24px;
+    font-size:24px;
   }
   .disclaimer .footerTitle{
-  	font-size:24px;
+    font-size:24px;
   }
   .footerC {
   grid-template-columns:100%;
@@ -315,7 +315,7 @@
           <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
           <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
           <li class="nav-item"><a class="nav-link active" href="clubs.html">Clubs</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://forms.gle/gd7vYT3f4PCQ2vCa6">Feedback</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://forms.gle/gd7vYT3f4PCQ2vCa6" target="_blank">Feedback</a></li>
         </ul>
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" href="#">Log In</a></li>
@@ -851,9 +851,9 @@
             var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
             var vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
             var elementOffset = $('.footerC').offset().top;
-	          var distance = (elementOffset)+$('.footerC').outerHeight();
-	          if ((vh-distance)>=0) { $('.footerC').css("position", "absolute");$('.footerC').css("bottom", "0px"); } 
-	          else { $('.footerC').css("position", "relative"); }
+            var distance = (elementOffset)+$('.footerC').outerHeight();
+            if ((vh-distance)>=0) { $('.footerC').css("position", "absolute");$('.footerC').css("bottom", "0px"); } 
+            else { $('.footerC').css("position", "relative"); }
           });
           $("#returnToList").click(function() {
             $(".topContainer").css("display","block");
@@ -864,9 +864,9 @@
     var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
     var vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
     var elementOffset = $('.footerC').offset().top;
-	  var distance = (elementOffset)+$('.footerC').outerHeight();
-	  if ((vh-distance)>=0) { $('.footerC').css("position", "absolute");$('.footerC').css("bottom", "0px"); } 
-	  else { $('.footerC').css("position", "relative"); }
+    var distance = (elementOffset)+$('.footerC').outerHeight();
+    if ((vh-distance)>=0) { $('.footerC').css("position", "absolute");$('.footerC').css("bottom", "0px"); } 
+    else { $('.footerC').css("position", "relative"); }
             var scrollIDElem = document.getElementById(`${scrollID}`);
             window.scrollTo(0, scrollIDElem.offsetTop);
           });
@@ -953,9 +953,9 @@ function searchResults() {
     var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
     var vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
     var elementOffset = $('.footerC').offset().top;
-	  var distance = (elementOffset)+$('.footerC').outerHeight();
-	  if ((vh-distance)>=0) { $('.footerC').css("position", "absolute");$('.footerC').css("bottom", "0px"); } 
-	  else { $('.footerC').css("position", "relative"); }
+    var distance = (elementOffset)+$('.footerC').outerHeight();
+    if ((vh-distance)>=0) { $('.footerC').css("position", "absolute");$('.footerC').css("bottom", "0px"); } 
+    else { $('.footerC').css("position", "relative"); }
     clearClubListing(clubListing);
   }
   clearDiv(txtOptDiv); //this is used to make sure that the search results are cleared after each use
@@ -1000,13 +1000,13 @@ function searchResults() {
     if (count > highestCount) {
       highestCount = count; //this updates the highest counted number (most accurate search result)
     }
-	  //this checks to see if the first word of the career is similar to the first part of the first word that the user types in the search
-	  var checkerIndx = tempL.indexOf(txtIptL);
-	  if (checkerIndx != -1) {
-	  	//success! in this case, it found the user input lowercase string to be part of the lowercase array results
-		highestCount+=40; //a really high value so that it takes priority
-		count = highestCount;
-	  }
+    //this checks to see if the first word of the career is similar to the first part of the first word that the user types in the search
+    var checkerIndx = tempL.indexOf(txtIptL);
+    if (checkerIndx != -1) {
+      //success! in this case, it found the user input lowercase string to be part of the lowercase array results
+    highestCount+=40; //a really high value so that it takes priority
+    count = highestCount;
+    }
     obj[temp] = count; //this updates the count for each item
   }
   var objectLength = Object.keys("obj").length; //this returns the object's length, not needed right now
@@ -1049,9 +1049,9 @@ function searchResults() {
     var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
     var vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
     var elementOffset = $('.footerC').offset().top;
-	  var distance = (elementOffset)+$('.footerC').outerHeight();
-	  if ((vh-distance)>=0) { $('.footerC').css("position", "absolute");$('.footerC').css("bottom", "0px"); } 
-	  else { $('.footerC').css("position", "relative"); }
+    var distance = (elementOffset)+$('.footerC').outerHeight();
+    if ((vh-distance)>=0) { $('.footerC').css("position", "absolute");$('.footerC').css("bottom", "0px"); } 
+    else { $('.footerC').css("position", "relative"); }
   }
 }
 //this pulls up the course information and scrolls to the section where its dept's courses list is
