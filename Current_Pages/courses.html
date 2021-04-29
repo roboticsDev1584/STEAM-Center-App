@@ -26,10 +26,11 @@
       */
       body {
           width: 100%;
-          overflow-x:hidden;
       }
-      html{
+      html, body{
         scroll-behavior: smooth;
+        overflow-x:hidden;
+        max-width:100%;
       }
       .body-text{
         font-family: 'Montserrat';
@@ -191,6 +192,10 @@
         justify-content: flex-start;
       }
     }
+    #search {
+      font-family: 'Montserrat', sans-serif;
+      font-size:19px;
+    }
     .search {
       position:relative;
       width: 60%;
@@ -246,6 +251,22 @@
         cursor:pointer;
         text-decoration:none;
     }
+@media (max-width:406px){
+  .search {
+    min-width:300px;
+  }
+  .search-input {
+    overflow:hidden;
+  }
+  .search-input::placeholder {
+    text-overflow:ellipsis;
+  }
+}
+@media (max-width:300px){
+  .search {
+    min-width:200px;
+  }
+}
     .searchResultDepts {
       display:none;
     }
@@ -409,7 +430,7 @@
           <li class="nav-item"><a class="nav-link" style="color:white;" href="courses.html">Courses</a></li>
           <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
           <li class="nav-item"><a class="nav-link" href="clubs.html">Clubs</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://forms.gle/gd7vYT3f4PCQ2vCa6" target="_blank">Feedback</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://forms.gle/gd7vYT3f4PCQ2vCa6" target="_blank" rel="noreferrer noopener">Feedback</a></li>
         </ul>
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" href="#">Log In</a></li>
@@ -495,7 +516,7 @@
   <div class="d-flex px-5 searchC">
     <div class="search"> 
       <div class="search-field">
-      <input type="text" id="search" class="search-input" placeholder="Search..." onkeyup="searchResults()"> 
+      <input type="text" id="search" class="search-input" placeholder="Search for a course..." onkeyup="searchResults()"> 
       <a class="search-icon"> <i class="fa fa-search"></i> </a> 
       </div>
       <div class="outputCC">
@@ -842,8 +863,8 @@
   <div class="helpfullinksM listBody">
     <h2 class="footerTitle">Helpful Links</h2>
   	<ul>
-      <li><a href="https://www.allenisd.org/" target="_blank">Official Allen ISD Website</a></li>
-      <li><a href="https://www.allenisd.org/steamcenter" target="_blank">Official STEAM Center Website</a></li>
+      <li><a href="https://www.allenisd.org/" target="_blank" rel="noreferrer noopener">Official Allen ISD Website</a></li>
+      <li><a href="https://www.allenisd.org/steamcenter" target="_blank" rel="noreferrer noopener">Official STEAM Center Website</a></li>
     </ul>
   </div>
   </div>
@@ -860,8 +881,8 @@
   <div class="helpfullinks listBody">
     <h2 class="footerTitle">Helpful Links</h2>
   	<ul>
-      <li><a href="https://www.allenisd.org/" target="_blank">Official Allen ISD Website</a></li>
-      <li><a href="https://www.allenisd.org/steamcenter" target="_blank">Official STEAM Center Website</a></li>
+      <li><a href="https://www.allenisd.org/" target="_blank" rel="noreferrer noopener">Official Allen ISD Website</a></li>
+      <li><a href="https://www.allenisd.org/steamcenter" target="_blank" rel="noreferrer noopener">Official STEAM Center Website</a></li>
     </ul>
   </div>
 </div>
