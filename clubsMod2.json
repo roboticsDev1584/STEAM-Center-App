@@ -499,6 +499,23 @@
         }
       },
       {
+        "id": 202,
+        "name": "Environmental Club",
+        "type": 8,
+        "subtype": "Awareness",
+        "dept": "s",
+        "description": "Environmental Club's mission is to raise awareness among students and educate the community on the importance of sustainability, instill a sense of responsibility for the environment and a personal commitment to protect and preserve the environment, and educate/ cultivate an appreciation and interest in the environment. As a member of the club, the environmental ambassadors lead the environmental activities and events in school, identify and implement values based environmental programs within their school and community, and form part of the network to share and communicate their environmental activities and ideas. ",
+        "website": "https://www.allenisd.org/Page/18419",
+        "banner_image": "https://roboticsdev1584.github.io/STEAM-Center-App/environ_club_logo.png",
+        "meeting": "On Zoom",
+        "sponsor": "Savannah Hollis",
+        "leader": "Avery Van Scoy",
+        "social": {
+          "instagram": "https://www.instagram.com/ahs.environmental/",
+          "remind": "https://www.remind.com/join/theenviron"
+        }
+      },
+      {
         "id": 6,
         "name": "eSports Club",
         "type": 4,
