@@ -1,4 +1,4 @@
-var scrollTop =  window.pageYOffset || document.documentElement.scrollTop; 
+var scrollTop =  window.pageYOffset || document.documentElement.scrollTop;
 var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
 var iMap = document.getElementById("iMap");
 var imgC = document.getElementById("imgC");
@@ -14,6 +14,8 @@ var viewWidth = window.innerWidth;
 var viewHeight = window.innerHeight;
 var paddingI = parseInt($(".roomToggle").css("padding"));
 var fontSizeI = parseInt($(".roomToggle").css("font-size"));
+var roomToggles = document.getElementsByClassName(".roomToggle");
+var roomTogglesWidth = [];
 var cPadding; 
 var cFontSize;
 var scrollToggleActive = false;
@@ -57,6 +59,12 @@ function enableScroll() {
   window.removeEventListener(wheelEvent, stopDefault, {passive: false}); 
   window.removeEventListener('touchmove', stopDefault, {passive: false});
 }
+function fixToggleWidth() {
+  for (var index10 = 0; index10 < roomToggles.length; index10++) {
+    //roomToggles[index10].style.width = roomTogglesWidth[index10];
+    roomToggles[index10].style.maxWidth = "auto !important";
+  }
+}
 
 fetch('https://roboticsdev1584.github.io/STEAM-Center-App/map.json').then(function(resp) {
   return resp.json();
@@ -67,6 +75,9 @@ fetch('https://roboticsdev1584.github.io/STEAM-Center-App/map.json').then(functi
   catch(err) {}//do nothing
   });
 $(document).ready(function() {
+  for (var index10 = 0; index10 < roomToggles.length; index10++) {
+    roomTogglesWidth.push(roomToggles[index10].offsetWidth);
+  }
 $("#A001").css("left", `${5}%`);
 $("#A001").css("top", `${54}%`);
 $("#A002").css("left", `${10}%`);
@@ -128,168 +139,6 @@ $(".nav3").click(function() {
     }
     scrollToggleActive = !scrollToggleActive;
 });
-$(".imgC3").click(function() { //zoom in
-  $(".imgC9").css("display","none");
-  scaleAmt+=1.0;
-  if (scaleAmt > 5.0) {
-    scaleAmt = 5.0;
-  }
-  if (scaleAmt != 1.0){
-    cPadding = ((scaleAmt + paddingI)>8)? 8: scaleAmt + paddingI;
-    cFontSize = ((scaleAmt*2 + fontSizeI)>20)? 20: scaleAmt*2 + fontSizeI;
-    $(".roomToggle").css("padding", `${cPadding}px`);
-    $(".roomToggle").css("font-size", `${cFontSize}px`);
-    $(".roomToggle").css("z-index","1");
-    $(".roomToggle").css("max-width","100%");
-    $("#A015").css("width","auto");
-    $("#A023").css("max-width","100% !important");
-    $("#B018").css("max-width","100% !important");
-    var tempW;
-      var tempH;
-      for (var index3 = 0; index3 < dataArr.length; index3++) {
-       tempW = viewWidth/118 - (viewWidth/10000);
-       tempH = 4;
-      if (viewWidth > 1900) {
-        tempW -= 3.0;
-        tempH = 7;
-      }
-      else if (viewWidth > 1800) {
-        tempW -= 2.5;
-        tempH = 7;
-      }
-      else if (viewWidth > 1700) {
-        tempW -= 1.5;
-        tempH = 7;
-      }
-      else if (viewWidth > 1600) {
-        tempW -= 0.5;
-        tempH = 7;
-      }
-      else if (viewWidth > 1500) {
-        tempH = 7;
-      }
-      else if (viewWidth > 1050) {
-        tempH = 6;
-       }
-       else if (viewWidth > 950) {
-        tempH = 5;
-       }
-       else if (viewWidth > 850) {
-        tempH = 4;
-       }
-       else if (viewWidth > 650) {
-        tempH = 3.5;
-       }
-       else if (viewWidth > 550) {
-        tempH = 3;
-       }
-       else if (viewWidth > 450) {
-        tempH = 2.5;
-       }
-       else if (viewWidth > 0) {
-        tempH = 2;
-       }
-        $(`#${dataArr[index3].room}`).css("left", `${(dataArr[index3].left)*scaleAmt+(iMap.getBoundingClientRect().left - imgC.getBoundingClientRect().left)/(tempW)+scaleAmt}%`);
-        $(`#${dataArr[index3].room}`).css("top", `${(dataArr[index3].top)*scaleAmt+(iMap.getBoundingClientRect().top - imgC.getBoundingClientRect().top)/(tempH)}%`);
-      }
-  }
-  iMap.style.transform = `scale(${scaleAmt})`;
-  //$(".imgC2").css("z-index","99");
-  $(".imgC3").css("z-index","99");
-  $(".imgC4").css("z-index","99");
-  $(".imgC6").css("z-index","99");
-  $(".imgC6Mobile").css("z-index","99");
-  $(".legendC").css("z-index","99");
-  $(".legendCMobile").css("z-index","99");
-});
-$(".imgC4").click(function() { //zoom out
-  scaleAmt-=1.0;
-  $(".imgC9").css("display","none");
-  if (scaleAmt < 1.0) {
-    scaleAmt = 1.0;
-    $(".imgC9").css("display","block");
-  }
-  else if (scaleAmt == 1.0) {
-    $(".roomToggle").css("max-width","8%");
-    $(".imgC9").css("display","block");
-  	iMap.style.marginLeft = `${0}px`;
-    iMap.style.marginTop = `${0}px`;
-    //this resets the roomToggle buttons to their initially-sized styling
-    $(".roomToggle").css("padding", `${paddingI}px`);
-    $(".roomToggle").css("font-size", `${fontSizeI}px`);
-    for (var index3 = 0; index3 < dataArr.length; index3++) {
-      $(`#${dataArr[index3].room}`).css("left", `${dataArr[index3].left}%`);
-      $(`#${dataArr[index3].room}`).css("top", `${dataArr[index3].top}%`);     
-    }
-    $("#A015").css("max-width","100% !important");
-  }
-  if (scaleAmt != 1.0) {
-    $(".roomToggle").css("max-width","100%");
-    $("#A023").css("max-width","100% !important");
-    $("#B018").css("max-width","100% !important");
-    cPadding = ((scaleAmt + paddingI)>8)? 8: scaleAmt + paddingI;
-    cFontSize = ((scaleAmt*2 + fontSizeI)>20)? 20: scaleAmt*2 + fontSizeI;
-    $(".roomToggle").css("padding", `${cPadding}px`);
-    $(".roomToggle").css("font-size", `${cFontSize}px`);
-    $(".roomToggle").css("z-index","1");
-    var tempW;
-      var tempH;
-      for (var index3 = 0; index3 < dataArr.length; index3++) {
-       tempW = viewWidth/118 - (viewWidth/10000);
-       tempH = 4;
-      if (viewWidth > 1900) {
-        tempW -= 3.0;
-        tempH = 7;
-      }
-      else if (viewWidth > 1800) {
-        tempW -= 2.5;
-        tempH = 7;
-      }
-      else if (viewWidth > 1700) {
-        tempW -= 1.5;
-        tempH = 7;
-      }
-      else if (viewWidth > 1600) {
-        tempW -= 0.5;
-        tempH = 7;
-      }
-      else if (viewWidth > 1500) {
-        tempH = 7;
-      }
-      else if (viewWidth > 1050) {
-        tempH = 6;
-       }
-       else if (viewWidth > 950) {
-        tempH = 5;
-       }
-       else if (viewWidth > 850) {
-        tempH = 4;
-       }
-       else if (viewWidth > 650) {
-        tempH = 3.5;
-       }
-       else if (viewWidth > 550) {
-        tempH = 3;
-       }
-       else if (viewWidth > 450) {
-        tempH = 2.5;
-       }
-       else if (viewWidth > 0) {
-        tempH = 2;
-       }
-        $(`#${dataArr[index3].room}`).css("left", `${(dataArr[index3].left)*scaleAmt+(iMap.getBoundingClientRect().left - imgC.getBoundingClientRect().left)/(tempW)+scaleAmt}%`);
-        $(`#${dataArr[index3].room}`).css("top", `${(dataArr[index3].top)*scaleAmt+(iMap.getBoundingClientRect().top - imgC.getBoundingClientRect().top)/(tempH)}%`);
-      }
-  }
-  iMap.style.transform = `scale(${scaleAmt})`;
-  //$(".imgC2").css("z-index","99");
-  $(".imgC3").css("z-index","99");
-  $(".imgC4").css("z-index","99");
-  $(".imgC6").css("z-index","99");
-  $(".imgC6Mobile").css("z-index","99");
-  $(".legendC").css("z-index","99");
-  $(".legendCMobile").css("z-index","99");
-});
 $(".imgC6").click(function() { //open more info bar
   $(".imgC6").css("display","none");
   $(".legendC").css("display","block");
@@ -310,23 +159,8 @@ $(".closeInfoMobile").click(function() { //close more info bar
   $(".legendCMobile").css("display","none");
   $(".imgC6Mobile").css("display","block");
 });
-$(".imgC").on("touchstart mousedown", function(e) {
-  imgC.style.height = `${imgC.offsetHeight}px`;
-  cont = true;
-  if (viewWidth < 821) { //if they are currently on mobile, get these coordinates
-    originalX = e.originalEvent.touches[0].pageX;
-    originalY = e.originalEvent.touches[0].pageY;
-  }
-  else {
-    originalX = e.pageX;
-    originalY = e.pageY;
-  }
-});
-$("body").on("touchend mouseup", function(){
-  cont = false;
-});
-$(".imgC").on("touchmove mousemove", function(event){
-    try {
+function mouseMoveCode(event) {
+  try {
     var currentX;
     var currentY;
     if (viewWidth < 821) { //if they are currently on mobile, get these coordinates
@@ -449,6 +283,189 @@ catch (err) {
   //map.json, then an error will be thrown- this gets rid of the error
   console.log("Don't hover over the map so soon!");
 }
+}
+$(".imgC").on("touchstart mousedown", function(e) {
+  imgC.style.height = `${imgC.offsetHeight}px`;
+  cont = true;
+  if (viewWidth < 821) { //if they are currently on mobile, get these coordinates
+    originalX = e.originalEvent.touches[0].pageX;
+    originalY = e.originalEvent.touches[0].pageY;
+  }
+  else {
+    originalX = e.pageX;
+    originalY = e.pageY;
+  }
+});
+$("body").on("touchend mouseup", function(){
+  cont = false;
+});
+$(".imgC").on("touchmove mousemove", function(event){
+  mouseMoveCode(event);
+});
+$(".imgC3").click(function(event) { //zoom in
+  fixToggleWidth();
+  $(".imgC9").css("display","none");
+  scaleAmt+=1.0;
+  if (scaleAmt > 5.0) {
+    scaleAmt = 5.0;
+  }
+  if (scaleAmt != 1.0){
+    cPadding = ((scaleAmt + paddingI)>8)? 8: scaleAmt + paddingI;
+    cFontSize = ((scaleAmt*2 + fontSizeI)>20)? 20: scaleAmt*2 + fontSizeI;
+    $(".roomToggle").css("padding", `${cPadding}px`);
+    $(".roomToggle").css("font-size", `${cFontSize}px`);
+    $(".roomToggle").css("z-index","1");
+    $(".roomToggle").css("max-width","100%");
+    //$("#A015").css("width","auto");
+    $("#A023").css("max-width","100% !important");
+    $("#B018").css("max-width","100% !important");
+    var tempW;
+      var tempH;
+      for (var index3 = 0; index3 < dataArr.length; index3++) {
+       tempW = viewWidth/118 - (viewWidth/10000);
+       tempH = 4;
+      if (viewWidth > 1900) {
+        tempW -= 3.0;
+        tempH = 7;
+      }
+      else if (viewWidth > 1800) {
+        tempW -= 2.5;
+        tempH = 7;
+      }
+      else if (viewWidth > 1700) {
+        tempW -= 1.5;
+        tempH = 7;
+      }
+      else if (viewWidth > 1600) {
+        tempW -= 0.5;
+        tempH = 7;
+      }
+      else if (viewWidth > 1500) {
+        tempH = 7;
+      }
+      else if (viewWidth > 1050) {
+        tempH = 6;
+       }
+       else if (viewWidth > 950) {
+        tempH = 5;
+       }
+       else if (viewWidth > 850) {
+        tempH = 4;
+       }
+       else if (viewWidth > 650) {
+        tempH = 3.5;
+       }
+       else if (viewWidth > 550) {
+        tempH = 3;
+       }
+       else if (viewWidth > 450) {
+        tempH = 2.5;
+       }
+       else if (viewWidth > 0) {
+        tempH = 2;
+       }
+        $(`#${dataArr[index3].room}`).css("left", `${(dataArr[index3].left)*scaleAmt+(iMap.getBoundingClientRect().left - imgC.getBoundingClientRect().left)/(tempW)+scaleAmt}%`);
+        $(`#${dataArr[index3].room}`).css("top", `${(dataArr[index3].top)*scaleAmt+(iMap.getBoundingClientRect().top - imgC.getBoundingClientRect().top)/(tempH)}%`);
+      }
+  }
+  iMap.style.transform = `scale(${scaleAmt})`;
+  //$(".imgC2").css("z-index","99");
+  $(".imgC3").css("z-index","99");
+  $(".imgC4").css("z-index","99");
+  $(".imgC6").css("z-index","99");
+  $(".imgC6Mobile").css("z-index","99");
+  $(".legendC").css("z-index","99");
+  $(".legendCMobile").css("z-index","99");
+});
+$(".imgC4").click(function(event) { //zoom out
+  fixToggleWidth();
+  scaleAmt-=1.0;
+  $(".imgC9").css("display","none");
+  if (scaleAmt < 1.0) {
+    scaleAmt = 1.0;
+    $(".imgC9").css("display","block");
+  }
+  else if (scaleAmt == 1.0) {
+    $(".roomToggle").css("max-width","8%");
+    $(".imgC9").css("display","block");
+  	iMap.style.marginLeft = `${0}px`;
+    iMap.style.marginTop = `${0}px`;
+    //this resets the roomToggle buttons to their initially-sized styling
+    $(".roomToggle").css("padding", `${paddingI}px`);
+    $(".roomToggle").css("font-size", `${fontSizeI}px`);
+    for (var index3 = 0; index3 < dataArr.length; index3++) {
+      $(`#${dataArr[index3].room}`).css("left", `${dataArr[index3].left}%`);
+      $(`#${dataArr[index3].room}`).css("top", `${dataArr[index3].top}%`);
+    }
+    $("#A015").css("max-width","9.25%");
+
+  }
+  if (scaleAmt != 1.0) {
+    $(".roomToggle").css("max-width","100%");
+    $("#A023").css("max-width","100% !important");
+    $("#B018").css("max-width","100% !important");
+    cPadding = ((scaleAmt + paddingI)>8)? 8: scaleAmt + paddingI;
+    cFontSize = ((scaleAmt*2 + fontSizeI)>20)? 20: scaleAmt*2 + fontSizeI;
+    $(".roomToggle").css("padding", `${cPadding}px`);
+    $(".roomToggle").css("font-size", `${cFontSize}px`);
+    $(".roomToggle").css("z-index","1");
+    var tempW;
+      var tempH;
+      for (var index3 = 0; index3 < dataArr.length; index3++) {
+       tempW = viewWidth/118 - (viewWidth/10000);
+       tempH = 4;
+      if (viewWidth > 1900) {
+        tempW -= 3.0;
+        tempH = 7;
+      }
+      else if (viewWidth > 1800) {
+        tempW -= 2.5;
+        tempH = 7;
+      }
+      else if (viewWidth > 1700) {
+        tempW -= 1.5;
+        tempH = 7;
+      }
+      else if (viewWidth > 1600) {
+        tempW -= 0.5;
+        tempH = 7;
+      }
+      else if (viewWidth > 1500) {
+        tempH = 7;
+      }
+      else if (viewWidth > 1050) {
+        tempH = 6;
+       }
+       else if (viewWidth > 950) {
+        tempH = 5;
+       }
+       else if (viewWidth > 850) {
+        tempH = 4;
+       }
+       else if (viewWidth > 650) {
+        tempH = 3.5;
+       }
+       else if (viewWidth > 550) {
+        tempH = 3;
+       }
+       else if (viewWidth > 450) {
+        tempH = 2.5;
+       }
+       else if (viewWidth > 0) {
+        tempH = 2;
+       }
+        $(`#${dataArr[index3].room}`).css("left", `${(dataArr[index3].left)*scaleAmt+(iMap.getBoundingClientRect().left - imgC.getBoundingClientRect().left)/(tempW)+scaleAmt}%`);
+        $(`#${dataArr[index3].room}`).css("top", `${(dataArr[index3].top)*scaleAmt+(iMap.getBoundingClientRect().top - imgC.getBoundingClientRect().top)/(tempH)}%`);
+      }
+  }
+  iMap.style.transform = `scale(${scaleAmt})`;
+  //$(".imgC2").css("z-index","99");
+  $(".imgC3").css("z-index","99");
+  $(".imgC4").css("z-index","99");
+  $(".imgC6").css("z-index","99");
+  $(".imgC6Mobile").css("z-index","99");
+  $(".legendC").css("z-index","99");
+  $(".legendCMobile").css("z-index","99");
 });
 /*This is for all of the zoom map stuff*/
 /*$("#enlarge").click(function(){
