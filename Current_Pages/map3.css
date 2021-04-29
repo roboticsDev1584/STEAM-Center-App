@@ -518,6 +518,12 @@ img {
   background-color:rgba(204, 0, 7,0.9);
   border-left:5px solid rgba(255,89,94,0.9);
 }
+.footerC {
+  font-weight:normal;
+}
+.disclaimer p {
+  font-size:14px;
+}
 @media (max-height: 500px){
   .close {
     filter:brightness(10%);
