@@ -113,6 +113,11 @@ user-select:none;
 font-family: 'Montserrat', sans-serif;
 font-weight:500;
 }
+html, body{
+  scroll-behavior: smooth;
+  overflow-x:hidden;
+  max-width:100%;
+}
 .bodyContent {
   margin-left:7%;
   margin-right:7%;
@@ -320,12 +325,16 @@ img {
   left:20px;
   top:70%;
   max-width:8%;
-  word-wrap:break-word;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  text-align:center;
+  /*word-wrap:break-word;*/
   /*word-break:break-all;*/
 }
 .roomToggle:hover {
-  filter:brightness(90%);
-  cursor:pointer;
+  /*filter:brightness(90%);
+  cursor:pointer;*/
+  cursor:grab;
 }
 .infoDataMobile {
   text-align:center;
@@ -398,7 +407,7 @@ img {
   font-size:4vmin; /*this used to be 34px*/
 }
 #A015 {
-  max-width:9.25%;
+  max-width:9.5%; /*9.25%*/
   /*width: auto !important;*/
 }
 #B018, #A023 {
@@ -415,7 +424,7 @@ img {
   /*height:100%;*/
   padding-bottom:3%;
   background-color:rgba(23,120,181,0.9);
-  display:none;
+  display:block;
   transition:display 5s;
 }
 .legendC ul {
@@ -442,6 +451,7 @@ img {
   position:absolute;
   left:15px;
   top:15px;
+  display:none;
 }
 .imgC6Mobile {
   position:absolute;
@@ -625,10 +635,13 @@ img {
   #floorNav {
     display:none;
   }
-  .imgC6 {
+  .imgC6, .legendC {
     display:none;
   }
   .imgC6Mobile {
+    display:none;
+  }
+  .legendCMobile {
     display:block;
   }
 }
@@ -697,5 +710,16 @@ img {
   margin-top: 20px;
   margin-right:auto;
   margin-left:auto;
+}
+@media (max-width:400px){
+  .search {
+    min-width:100%;
+  }
+  .search-input {
+    overflow:hidden;
+  }
+  .search-input::placeholder {
+    text-overflow:ellipsis;
+  }
 }
 /*end of CSS for search bar*/
