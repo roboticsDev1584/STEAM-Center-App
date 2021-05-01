@@ -81,6 +81,8 @@
         color: black;
         font-size: 200%;
         width: 250px;
+        transition: margin 2s;
+        transition: font-size 1.5s;
       }
       .title-textCourse{
         font-family: 'Asap';
@@ -116,6 +118,7 @@
         height:250px;
         border-radius:50%;
         overflow:hidden;
+        transition: transform 2s;
     }
     .insideImg {
         position:absolute;
@@ -468,7 +471,7 @@
           <div class="text mobileShow">
             Technology
           </div>
-          <div class="circleC" style="border:12px solid #1982c4;">
+          <div class="circleC" id="circle2" style="border:12px solid #1982c4;">
             <a href="#technology">
               <img class="insideImg" src="https://cdn.discordapp.com/attachments/827568951348428825/832001527055908944/t-6mnW_RkmnK47dI6m8m5gQB65r5ZDOPqIGhqlxyJ6ywHFGTYru_VRytH1RR6_T1d4StbkTG9eNXycpPqn1RRfpx1N7BRW6Zj691.png" alt="Responsive image">
             </a>
@@ -491,7 +494,7 @@
           <div class="text mobileShow">
             Arts
           </div>
-          <div class="circleC" style="border:12px solid #DCA000;">
+          <div class="circleC" id="circle4" style="border:12px solid #DCA000;">
             <a href="#art">
               <img class="insideImg" src="https://cdn.discordapp.com/attachments/827568951348428825/832001557259091988/rE-IuhIwTWZmx4CQO8wy8A4MvXB4hW1R-IFfMPAtCcWWgwCNxVYpnoPKZ5LoHCzH9BurV3LaGMDcqr2EuROl1Zk7At27X4djkh5I.png" alt="Responsive image">
             </a>
@@ -1212,6 +1215,18 @@ $("body").click(function(event) {
   else {
   $("#outputC").css("display", "block");
   }
+});
+$(".circleC").on('mouseover', function() {
+  var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+  if (vw > 1199 && ($(this).attr('id')=="circle2" || $(this).attr('id')=="circle4")) { $(this).next("div").css("padding-top", "30px");$(this).next("div").css("font-size", "40px"); }
+  else { $(this).prev("div").css("margin-bottom", "30px");$(this).prev("div").css("font-size", "40px"); }
+  $(this).css("transform", "scale(1.25)");
+});
+$(".circleC").on('mouseout', function() {
+  var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+  if (vw > 1199 && ($(this).attr('id')=="circle2" || $(this).attr('id')=="circle4")) { $(this).next("div").css("padding-top", "0px");$(this).next("div").css("font-size", "32px"); }
+  else { $(this).prev("div").css("margin-bottom", "0px");$(this).prev("div").css("font-size", "32px"); }
+  $(this).css("transform", "scale(1.0)");
 });
 //this pulls up the course information and scrolls to the section where its dept's courses list is
 $("#outputC").on('click', ".searchResult", function() {
