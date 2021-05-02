@@ -1217,12 +1217,16 @@ $("body").click(function(event) {
   }
 });
 $(".circleC").on('mouseover', function() {
+  $(".text").css("transition", "margin 2s, font-size 1.5s");
+  $(".circleC").css("transition", "transform 2s");
   var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
   if (vw > 1199 && ($(this).attr('id')=="circle2" || $(this).attr('id')=="circle4")) { $(this).next("div").css("padding-top", "30px");$(this).next("div").css("font-size", "40px"); }
   else { $(this).prev("div").css("margin-bottom", "30px");$(this).prev("div").css("font-size", "40px"); }
   $(this).css("transform", "scale(1.25)");
 });
 $(".circleC").on('mouseout', function() {
+  $(".text").css("transition", "margin 2s, font-size 1.5s");
+  $(".circleC").css("transition", "transform 1s");
   var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
   if (vw > 1199 && ($(this).attr('id')=="circle2" || $(this).attr('id')=="circle4")) { $(this).next("div").css("padding-top", "0px");$(this).next("div").css("font-size", "32px"); }
   else { $(this).prev("div").css("margin-bottom", "0px");$(this).prev("div").css("font-size", "32px"); }
